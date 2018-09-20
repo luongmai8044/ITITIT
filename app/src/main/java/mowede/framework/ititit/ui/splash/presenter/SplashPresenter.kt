@@ -1,13 +1,15 @@
 package mowede.framework.ititit.ui.splash.presenter
 
+import io.reactivex.disposables.CompositeDisposable
 import mowede.framework.ititit.ui.base.presenter.BasePresenter
 import mowede.framework.ititit.ui.splash.interactor.SplashMVPInteractor
 import mowede.framework.ititit.ui.splash.view.SplashMVPView
-import mowede.framework.ititit.util.SchedulerProvider
-import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor> @Inject internal constructor(interactor: I, schedulerProvider: SchedulerProvider, disposable: CompositeDisposable) : BasePresenter<V, I>(interactor = interactor, schedulerProvider = schedulerProvider, compositeDisposable = disposable), SplashMVPPresenter<V, I> {
+class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor>
+@Inject internal constructor(interactor: I,
+                             disposable: CompositeDisposable)
+    : BasePresenter<V, I>(interactor = interactor,compositeDisposable = disposable), SplashMVPPresenter<V, I> {
 
     override fun onAttach(view: V?) {
         super.onAttach(view)
@@ -17,10 +19,9 @@ class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor> @Inject intern
     private fun feedInDatabase() = interactor?.let {
         compositeDisposable.add(it.seedQuestions()
                 .flatMap { interactor?.seedOptions() }
-                .compose(schedulerProvider.ioToMainObservableScheduler())
-                .subscribe({
+                .subscribe {
                     getView()?.let { decideActivityToOpen() }
-                }))
+                })
     }
 
     private fun decideActivityToOpen() = getView()?.let {

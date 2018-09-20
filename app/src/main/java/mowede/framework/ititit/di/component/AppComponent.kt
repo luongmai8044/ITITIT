@@ -1,13 +1,12 @@
 package mowede.framework.ititit.di.component
 
 import android.app.Application
-import mowede.framework.ititit.ITITITApp
-import mowede.framework.ititit.di.builder.ActivityBuilder
-import mowede.framework.ititit.di.module.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
-import mowede.framework.ititit.ui.base.interactor.BaseInteractor
+import mowede.framework.ititit.ITITITApp
+import mowede.framework.ititit.di.builder.ActivityBuilder
+import mowede.framework.ititit.di.module.AppModule
 import javax.inject.Singleton
 
 @Singleton
@@ -24,7 +23,5 @@ interface AppComponent {
     }
 
     fun inject(app: ITITITApp)
-
-    fun inject(interactor: BaseInteractor)
 
 }

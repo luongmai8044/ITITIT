@@ -2,6 +2,9 @@ package mowede.framework.ititit.data.network
 
 import io.reactivex.Observable
 import mowede.framework.ititit.BuildConfig
+import mowede.framework.ititit.data.network.request.LoginRequest
+import mowede.framework.ititit.data.network.response.LoginResponse
+import mowede.framework.ititit.data.network.response.LogoutResponse
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
