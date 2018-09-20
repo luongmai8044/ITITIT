@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -19,6 +20,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 }
 
@@ -49,6 +51,7 @@ ext {
     placeholderviewVersion = '0.6.1'
     debugDBVersion = '1.0.3'
     timberVersion = '4.6.0'
+    retrofit_version = '2.3.0'
 
     //Test dependencies
     junitVersion = '4.12'

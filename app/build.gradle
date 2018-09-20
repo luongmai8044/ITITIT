@@ -19,13 +19,13 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }
@@ -47,6 +47,9 @@ dependencies {
 
     // network
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
 
     // database
     implementation "android.arch.persistence.room:rxjava2:$rootProject.roomDatabaseVersion"

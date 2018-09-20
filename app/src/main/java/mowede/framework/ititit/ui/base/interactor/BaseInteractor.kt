@@ -1,18 +1,12 @@
 package mowede.framework.ititit.ui.base.interactor
 
-import mowede.framework.ititit.data.network.ApiHelper
+import mowede.framework.ititit.data.network.ApiServiceHelper
 import mowede.framework.ititit.data.preferences.PreferenceHelper
 import mowede.framework.ititit.util.AppConstants
 
-open class BaseInteractor() : MVPInteractor {
-
-    protected lateinit var preferenceHelper: PreferenceHelper
-    protected lateinit var apiHelper: ApiHelper
-
-    constructor(preferenceHelper: PreferenceHelper, apiHelper: ApiHelper) : this() {
-        this.preferenceHelper = preferenceHelper
-        this.apiHelper = apiHelper
-    }
+open class BaseInteractor(val preferenceHelper: PreferenceHelper,
+                          val apiServiceHelper : ApiServiceHelper = ApiServiceHelper.create())
+    : MVPInteractor {
 
     override fun isUserLoggedIn() = this.preferenceHelper.getCurrentUserLoggedInMode() != AppConstants.LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT.type
 

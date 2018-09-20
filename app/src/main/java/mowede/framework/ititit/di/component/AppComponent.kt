@@ -7,6 +7,7 @@ import mowede.framework.ititit.di.module.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import mowede.framework.ititit.ui.base.interactor.BaseInteractor
 import javax.inject.Singleton
 
 @Singleton
@@ -23,5 +24,7 @@ interface AppComponent {
     }
 
     fun inject(app: ITITITApp)
+
+    fun inject(interactor: BaseInteractor)
 
 }
