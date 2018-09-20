@@ -1,4 +1,4 @@
-package mowede.framework.ititit.data.network
+package mowede.framework.ititit.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

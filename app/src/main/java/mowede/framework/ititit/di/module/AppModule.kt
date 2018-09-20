@@ -13,6 +13,9 @@ import mowede.framework.ititit.data.database.repository.options.OptionsRepositor
 import mowede.framework.ititit.data.database.repository.questions.QuestionRepo
 import mowede.framework.ititit.data.database.repository.questions.QuestionRepository
 import mowede.framework.ititit.data.network.ApiHeader
+import mowede.framework.ititit.data.network.ApiServiceHelper
+import mowede.framework.ititit.data.network.DataRepository
+import mowede.framework.ititit.data.network.NetworkDataRepository
 import mowede.framework.ititit.data.preferences.AppPreferenceHelper
 import mowede.framework.ititit.data.preferences.PreferenceHelper
 import mowede.framework.ititit.di.ApiKeyInfo
@@ -66,5 +69,9 @@ class AppModule {
     @Provides
     internal fun provideSchedulerProvider(): SchedulerProvider = SchedulerProvider()
 
+    @Provides @Singleton
+    internal fun provideApiServiceHelper() : ApiServiceHelper = ApiServiceHelper.create()
 
+    @Provides @Singleton
+    internal fun provideDataRepository(repository : NetworkDataRepository) : DataRepository = repository
 }
