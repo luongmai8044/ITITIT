@@ -1,18 +1,17 @@
 package mowede.framework.ititit.ui.base.view
 
-import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.FragmentManager
 import mowede.framework.ititit.util.CommonUtil
 import dagger.android.support.AndroidSupportInjection
+import mowede.framework.ititit.util.extension.ProgressBarFragment
 
 
 abstract class BaseDialogView : DialogFragment(), DialogMVPView {
 
     private var parentActivity: BaseActivity? = null
-    private var progressDialog: ProgressDialog? = null
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
@@ -40,14 +39,14 @@ abstract class BaseDialogView : DialogFragment(), DialogMVPView {
     }
 
     override fun hideProgress() {
-        if (progressDialog != null && progressDialog?.isShowing!!) {
-            progressDialog?.cancel()
+        fragmentManager?.findFragmentByTag(ProgressBarFragment.TAG)?.let {
+            fragmentManager?.beginTransaction()?.remove(it)?.commit()
         }
     }
 
     override fun showProgress() {
         hideProgress()
-        progressDialog = CommonUtil.showLoadingDialog(this.context)
+        ProgressBarFragment.newInstance().show(fragmentManager, ProgressBarFragment.TAG)
     }
 
     private fun performDependencyInjection() {
