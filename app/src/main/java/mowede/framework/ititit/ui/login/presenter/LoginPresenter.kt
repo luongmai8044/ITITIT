@@ -52,19 +52,6 @@ class LoginPresenter<V : LoginMVPView, I : LoginMVPInteractor> @Inject internal 
 
     override fun onGoogleLoginClicked() {
         getView()?.showProgress()
-        interactor?.let {
-            compositeDisposable.add(it.doGoogleLoginApiCall()
-                    .compose(schedulerProvider.ioToMainObservableScheduler())
-                    .subscribe({ loginResponse ->
-                        updateUserInSharedPref(loginResponse = loginResponse,
-                                loggedInMode = AppConstants.LoggedInMode.LOGGED_IN_MODE_GOOGLE)
-                        getView()?.let {
-                            it.hideProgress()
-                            it.openMainActivity()
-                        }
-                    }, { err -> println(err) }))
-        }
-
     }
 
     private fun updateUserInSharedPref(loginResponse: LoginResponse,
