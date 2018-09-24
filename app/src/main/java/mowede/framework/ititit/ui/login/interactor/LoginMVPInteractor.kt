@@ -14,4 +14,6 @@ interface LoginMVPInteractor : MVPInteractor {
 
     fun doGoogleLoginApiCall(): Completable
 
+    fun doLogout() : Completable
+
 }

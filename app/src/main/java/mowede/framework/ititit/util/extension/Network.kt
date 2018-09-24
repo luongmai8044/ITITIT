@@ -1,4 +1,4 @@
-package mowede.framework.ititit.data
+package mowede.framework.ititit.util.extension
 
 import io.reactivex.Single
 import mowede.framework.ititit.data.domain.HttpCallFailureException

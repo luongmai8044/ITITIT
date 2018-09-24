@@ -1,6 +1,5 @@
 package mowede.framework.ititit.data.network
 
-import io.reactivex.Observable
 import io.reactivex.Single
 import mowede.framework.ititit.data.network.request.LoginRequest
 import mowede.framework.ititit.data.network.response.LoginResponse
