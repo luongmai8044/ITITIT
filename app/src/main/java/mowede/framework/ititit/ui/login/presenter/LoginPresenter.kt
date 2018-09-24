@@ -1,6 +1,7 @@
 package mowede.framework.ititit.ui.login.presenter
 
 import io.reactivex.disposables.CompositeDisposable
+import mowede.framework.ititit.data.domain.NetworkException
 import mowede.framework.ititit.ui.base.presenter.BasePresenter
 import mowede.framework.ititit.ui.login.interactor.LoginMVPInteractor
 import mowede.framework.ititit.ui.login.view.LoginMVPView
@@ -18,46 +19,44 @@ class LoginPresenter<V : LoginMVPView, I : LoginMVPInteractor>
             password.isEmpty() -> getView()?.showValidationMessage(AppConstants.EMPTY_PASSWORD_ERROR)
             else -> {
                 getView()?.showProgress()
-                interactor?.let {
-                    compositeDisposable.add(it.doServerLoginApiCall(email, password)
-                            .subscribe({
-                                getView()?.openMainActivity()
-                            }, { err -> println(err) }))
-                }
-
+                interactor.doServerLoginApiCall(email, password)
+                        .subscribe(makeSingleSubscriber(getView(),
+                                { user ->
+                                    user.email
+                                },
+                                { throwable ->
+                                    when (throwable) {
+                                        is NoSuchElementException -> {
+                                            println(throwable)
+                                            false
+                                        }
+                                        else -> {
+                                            true
+                                        }
+                                    }
+                                }))
             }
         }
     }
 
     override fun onFBLoginClicked() {
         getView()?.showProgress()
-        interactor?.let {
-            compositeDisposable.add(it.doFBLoginApiCall()
-                    .subscribe({
-                        getView()?.let {
-                            it.hideProgress()
-                            it.openMainActivity()
-                        }
-                    }, { err -> println(err) }))
-        }
-
-
+        interactor.doFBLoginApiCall()
+                .subscribe(makeCompletableSubscriber(
+                        view = getView(),
+                        onComplete = { getView()?.openMainActivity() }
+                ))
     }
 
     override fun onGoogleLoginClicked() {
         getView()?.showProgress()
         interactor?.let {
-            compositeDisposable.add(it.doGoogleLoginApiCall()
-                    .subscribe({
-                        getView()?.let {
-                            it.hideProgress()
-                            it.openMainActivity()
-                        }
-                    }, { err -> println(err) }))
+            it.doGoogleLoginApiCall()
+                    .subscribe(makeCompletableSubscriber(
+                            view = getView(),
+                            onComplete = { getView()?.openMainActivity() }
+                    ))
         }
 
     }
-
-
-
 }

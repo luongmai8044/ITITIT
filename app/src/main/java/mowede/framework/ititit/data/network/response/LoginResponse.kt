@@ -2,6 +2,8 @@ package mowede.framework.ititit.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import mowede.framework.ititit.data.domain.Users
+import mowede.framework.ititit.data.network.DomainMappable
 
 data class LoginResponse(@Expose
                          @SerializedName("status_code")
@@ -37,6 +39,6 @@ data class LoginResponse(@Expose
 
                          @Expose
                          @SerializedName("message")
-                         var message: String? = null)
-
-
+                         var message: String? = null) : DomainMappable<Users>{
+    override fun asDomain() = Users(userName, userEmail)
+}

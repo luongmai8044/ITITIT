@@ -29,6 +29,9 @@ android {
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }
+    defaultConfig {
+        multiDexEnabled  true
+    }
 }
 
 dependencies {
@@ -101,4 +104,7 @@ dependencies {
 
     // Android Kotlin Extension
     implementation "androidx.core:core-ktx:$rootProject.androidKTXVersion"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi-kotlin:$rootProject.moshiVersion"
 }

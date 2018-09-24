@@ -2,7 +2,11 @@ package mowede.framework.ititit.ui.login.interactor
 
 import io.reactivex.Completable
 import io.reactivex.Observable
-import mowede.framework.ititit.data.model.User
+import io.reactivex.Single
+import mowede.framework.ititit.data.domain.Users
+import mowede.framework.ititit.data.mapError
+import mowede.framework.ititit.data.mapNetworkErrors
+import mowede.framework.ititit.data.mapToDomain
 import mowede.framework.ititit.data.network.DataRepository
 import mowede.framework.ititit.data.network.request.LoginRequest
 import mowede.framework.ititit.data.network.response.LoginResponse
@@ -18,30 +22,36 @@ class LoginInteractor
                              private val schedulerProvider: SchedulerProvider)
     : BaseInteractor(preferenceHelper, dataRepository), LoginMVPInteractor {
 
-    override fun doGoogleLoginApiCall() : Observable<User> =
+    override fun doGoogleLoginApiCall() : Single<Users> =
             dataRepository.performGoogleLogin(LoginRequest.GoogleLoginRequest("test1", "test1"))
-                    .doOnNext { response ->
+                    .mapNetworkErrors()
+                    .mapError()
+                    .doOnSuccess { response ->
                         updateUserInSharedPref(response, AppConstants.LoggedInMode.LOGGED_IN_MODE_GOOGLE)
                     }
-                    .map { response -> User(response.userName, response.userEmail) }
-                    .compose(schedulerProvider.ioToMainObservableScheduler())
+                    .mapToDomain()
+                    .compose(schedulerProvider.ioToMainSingleScheduler())
 
     override fun doFBLoginApiCall() : Completable =
             dataRepository.performFBLogin(LoginRequest.FacebookLoginRequest("test3", "test4"))
-                    .doOnNext { response ->
+                    .mapNetworkErrors()
+                    .mapError()
+                    .doOnSuccess { response ->
                         updateUserInSharedPref(response, AppConstants.LoggedInMode.LOGGED_IN_MODE_FB)
                     }
-                    .ignoreElements()
+                    .toCompletable()
                     .compose(schedulerProvider.ioToMainCompletableScheduler())
 
 
-    override fun doServerLoginApiCall(email: String, password: String) : Observable<User> =
+    override fun doServerLoginApiCall(email: String, password: String) : Single<Users> =
             dataRepository.performServerLogin(LoginRequest.ServerLoginRequest(email = email, password = password))
-                    .doOnNext { response ->
+                    .mapNetworkErrors()
+                    .mapError()
+                    .doOnSuccess { response ->
                         updateUserInSharedPref(response, AppConstants.LoggedInMode.LOGGED_IN_MODE_SERVER)
                     }
-                    .map { response -> User(response.userName, response.userEmail) }
-                    .compose(schedulerProvider.ioToMainObservableScheduler())
+                    .mapToDomain()
+                    .compose(schedulerProvider.ioToMainSingleScheduler())
 
 
     private fun updateUserInSharedPref(loginResponse: LoginResponse, loggedInMode: AppConstants.LoggedInMode) =

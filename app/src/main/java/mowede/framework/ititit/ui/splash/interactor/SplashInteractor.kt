@@ -39,7 +39,7 @@ class SplashInteractor
                                 mContext,
                                 AppConstants.SEED_DATABASE_QUESTIONS),
                         type)
-                questionRepoHelper.insertQuestions(questionList).compose(schedulerProvider.ioToMainObservableScheduler())
+                questionRepoHelper.insertQuestions(questionList)
             } else
                 Observable.just(false)
         }
@@ -56,7 +56,7 @@ class SplashInteractor
                                 mContext,
                                 AppConstants.SEED_DATABASE_OPTIONS),
                         type)
-                optionsRepoHelper.insertOptions(optionsList).compose(schedulerProvider.ioToMainObservableScheduler())
+                optionsRepoHelper.insertOptions(optionsList)
             } else
                 Observable.just(false)
         }

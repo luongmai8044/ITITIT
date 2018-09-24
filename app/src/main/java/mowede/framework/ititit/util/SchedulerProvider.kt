@@ -4,6 +4,10 @@ import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
+fun <T> Observable<T>.applyThread() : Observable<T> {
+    return this.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+}
+
 class SchedulerProvider {
 
     fun <T> ioToMainObservableScheduler(): ObservableTransformer<T, T> = ObservableTransformer { upstream ->
