@@ -47,11 +47,12 @@ ext {
     rxjava2Version = '2.0.6'
     rxandroidVersion = '2.0.1'
     butterKnifeVersion = '8.8.1'
-    roomDatabaseVersion = '1.0.0'
+    roomDatabaseVersion = '1.1.1'
     placeholderviewVersion = '0.6.1'
     debugDBVersion = '1.0.3'
     timberVersion = '4.6.0'
     retrofit_version = '2.3.0'
+    moshiVersion = '1.5.0'
 
     //Test dependencies
     junitVersion = '4.12'

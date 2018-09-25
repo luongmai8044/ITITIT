@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.support.v4.app.FragmentManager
+import android.widget.Toast
 import mowede.framework.ititit.util.CommonUtil
 import dagger.android.support.AndroidSupportInjection
 import mowede.framework.ititit.util.extension.ProgressBarFragment
@@ -57,6 +58,11 @@ abstract class BaseDialogView : DialogFragment(), DialogMVPView {
         dismiss()
         getBaseActivity()?.onFragmentDetached(tag)
     }
+
+    override fun showNetworkError(){
+        Toast.makeText(context, "Network Error", 1).show()
+    }
+
 
     private fun getBaseActivity(): BaseActivity? {
         return parentActivity

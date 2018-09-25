@@ -12,6 +12,9 @@ object AppConstants {
     internal val EMPTY_PASSWORD_ERROR = 1003
     internal val LOGIN_FAILURE = 1004
     internal val NULL_INDEX = -1L
+    internal val CONNECT_TIMEOUT = 30L
+    internal val READ_TIMEOUT = 30L
+internal val WRITE_TIMEOUT = 30L
 
     enum class LoggedInMode constructor(val type: Int) {
         LOGGED_IN_MODE_LOGGED_OUT(0),

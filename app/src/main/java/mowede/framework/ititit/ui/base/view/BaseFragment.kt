@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
+import android.widget.Toast
 import mowede.framework.ititit.util.CommonUtil
 import dagger.android.support.AndroidSupportInjection
 import mowede.framework.ititit.util.extension.ProgressBarFragment
@@ -43,6 +44,11 @@ abstract class BaseFragment : Fragment(), MVPView {
         hideProgress()
         ProgressBarFragment.newInstance().show(fragmentManager, ProgressBarFragment.TAG)
     }
+
+    override fun showNetworkError(){
+        Toast.makeText(context, "Network Error", 1).show()
+    }
+
 
     fun getBaseActivity() = parentActivity
 
