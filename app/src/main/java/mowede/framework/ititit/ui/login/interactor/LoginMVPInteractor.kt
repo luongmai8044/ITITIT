@@ -1,18 +1,19 @@
 package mowede.framework.ititit.ui.login.interactor
 
-import mowede.framework.ititit.data.network.LoginResponse
-import mowede.framework.ititit.ui.base.interactor.MVPInteractor
-import mowede.framework.ititit.util.AppConstants
+import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
+import mowede.framework.ititit.data.domain.Users
+import mowede.framework.ititit.ui.base.interactor.MVPInteractor
 
 interface LoginMVPInteractor : MVPInteractor {
 
-    fun doServerLoginApiCall(email: String, password: String): Observable<LoginResponse>
+    fun doServerLoginApiCall(email: String, password: String): Single<Users>
 
-    fun doFBLoginApiCall(): Observable<LoginResponse>
+    fun doFBLoginApiCall(): Completable
 
-    fun doGoogleLoginApiCall(): Observable<LoginResponse>
+    fun doGoogleLoginApiCall(): Completable
 
-    fun updateUserInSharedPref(loginResponse: LoginResponse, loggedInMode: AppConstants.LoggedInMode)
+    fun doLogout() : Completable
 
 }

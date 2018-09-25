@@ -3,19 +3,26 @@ package mowede.framework.ititit.ui.splash.interactor
 import android.content.Context
 import com.google.gson.GsonBuilder
 import com.google.gson.internal.`$Gson$Types`
+import io.reactivex.Observable
 import mowede.framework.ititit.data.database.repository.options.Options
 import mowede.framework.ititit.data.database.repository.options.OptionsRepo
 import mowede.framework.ititit.data.database.repository.questions.Question
 import mowede.framework.ititit.data.database.repository.questions.QuestionRepo
-import mowede.framework.ititit.data.network.ApiHelper
+import mowede.framework.ititit.data.network.DataRepository
 import mowede.framework.ititit.data.preferences.PreferenceHelper
 import mowede.framework.ititit.ui.base.interactor.BaseInteractor
 import mowede.framework.ititit.util.AppConstants
 import mowede.framework.ititit.util.FileUtils
-import io.reactivex.Observable
+import mowede.framework.ititit.util.SchedulerProvider
 import javax.inject.Inject
 
-class SplashInteractor @Inject constructor(private val mContext: Context, private val questionRepoHelper: QuestionRepo, private val optionsRepoHelper: OptionsRepo, preferenceHelper: PreferenceHelper, apiHelper: ApiHelper) : BaseInteractor(preferenceHelper, apiHelper), SplashMVPInteractor {
+class SplashInteractor
+@Inject constructor(private val mContext: Context,
+                    private val questionRepoHelper: QuestionRepo,
+                    private val optionsRepoHelper: OptionsRepo,
+                    private val schedulerProvider: SchedulerProvider,
+                    dataRepository: DataRepository,
+                    preferenceHelper: PreferenceHelper) : BaseInteractor(preferenceHelper, dataRepository), SplashMVPInteractor {
 
     override fun getQuestion(): Observable<List<Question>> {
         return questionRepoHelper.loadQuestions()

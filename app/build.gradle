@@ -19,15 +19,18 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
+    }
+    defaultConfig {
+        multiDexEnabled  true
     }
 }
 
@@ -35,7 +38,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$rootProject.kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
 
     // android support libraries
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
@@ -47,6 +50,9 @@ dependencies {
 
     // network
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
 
     // database
     implementation "android.arch.persistence.room:rxjava2:$rootProject.roomDatabaseVersion"
@@ -98,4 +104,7 @@ dependencies {
 
     // Android Kotlin Extension
     implementation "androidx.core:core-ktx:$rootProject.androidKTXVersion"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi-kotlin:$rootProject.moshiVersion"
 }
