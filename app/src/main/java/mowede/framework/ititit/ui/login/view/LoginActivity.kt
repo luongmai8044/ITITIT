@@ -1,20 +1,18 @@
 package mowede.framework.ititit.ui.login.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_login.*
 import mowede.framework.ititit.R
 import mowede.framework.ititit.ui.base.view.BaseActivity
-import mowede.framework.ititit.ui.login.interactor.LoginMVPInteractor
 import mowede.framework.ititit.ui.login.presenter.LoginMVPPresenter
 import mowede.framework.ititit.util.AppConstants
-import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginMVPView {
 
     @Inject
-    internal lateinit var presenter: LoginMVPPresenter<LoginMVPView, LoginMVPInteractor>
+    internal lateinit var presenter: LoginMVPPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +43,10 @@ class LoginActivity : BaseActivity(), LoginMVPView {
 
     override fun openMainActivity() {
         finish()
+    }
+
+    override fun showAnError() {
+
     }
 
     private fun setOnClickListeners() {

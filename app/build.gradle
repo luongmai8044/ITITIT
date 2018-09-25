@@ -95,6 +95,7 @@ dependencies {
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     kaptTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$rootProject.mockitoKotlinVersion"
 
     // UI Testing
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"

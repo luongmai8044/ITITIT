@@ -35,7 +35,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideContext(application: Application): Context = application
+    internal fun provideContext(application: ITITITApp): Context = application
 
     @Provides
     @Singleton
@@ -99,7 +99,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideAuthorizationInterceptor(session: Session, tokenServiceHelper: TokenServiceHelper, application: Application): AuthorizationInterceptor {
+    internal fun provideAuthorizationInterceptor(session: Session, tokenServiceHelper: TokenServiceHelper, application: ITITITApp): AuthorizationInterceptor {
         return AuthorizationInterceptor(session, tokenServiceHelper, application as AuthorizationInterceptor.SessionExpiredListener)
     }
 
@@ -147,6 +147,6 @@ class AppModule {
     internal fun provideSession(userSession: UserSession): Session = userSession
 
     @Provides @Singleton
-    internal fun provideSessionTimeoutEmiiter(application: Application) : Completable =
-            (application as ITITITApp).sessionExpiredChannel
+    internal fun provideSessionTimeoutEmiiter(application: ITITITApp) : Completable =
+            application.sessionExpiredChannel
 }
