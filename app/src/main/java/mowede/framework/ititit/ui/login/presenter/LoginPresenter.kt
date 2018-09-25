@@ -2,15 +2,16 @@ package mowede.framework.ititit.ui.login.presenter
 
 import io.reactivex.disposables.CompositeDisposable
 import mowede.framework.ititit.ui.base.presenter.BasePresenter
+import mowede.framework.ititit.ui.login.interactor.LoginInteractor
 import mowede.framework.ititit.ui.login.interactor.LoginMVPInteractor
 import mowede.framework.ititit.ui.login.view.LoginMVPView
 import mowede.framework.ititit.util.AppConstants
 import javax.inject.Inject
 
-class LoginPresenter<V : LoginMVPView, I : LoginMVPInteractor>
-@Inject internal constructor(interactor: I,
+class LoginPresenter
+@Inject internal constructor(interactor: LoginInteractor,
                              disposable: CompositeDisposable)
-    : BasePresenter<V, I>(interactor = interactor, compositeDisposable = disposable), LoginMVPPresenter<V, I> {
+    : BasePresenter<LoginMVPView, LoginMVPInteractor>(interactor, disposable), LoginMVPPresenter {
 
     override fun onServerLoginClicked(email: String, password: String) {
         when {
@@ -21,12 +22,15 @@ class LoginPresenter<V : LoginMVPView, I : LoginMVPInteractor>
                 interactor.doServerLoginApiCall(email, password)
                         .subscribe(makeSingleSubscriber(getView(),
                                 { user ->
-                                    user.email
+                                    getView()?.hideProgress()
+                                    getView()?.openMainActivity()
                                 },
                                 { throwable ->
+                                    getView()?.hideProgress()
                                     when (throwable) {
                                         is NoSuchElementException -> {
                                             println(throwable)
+                                            getView()?.showAnError()
                                             false
                                         }
                                         else -> {
@@ -49,7 +53,7 @@ class LoginPresenter<V : LoginMVPView, I : LoginMVPInteractor>
 
     override fun onGoogleLoginClicked() {
         getView()?.showProgress()
-        interactor?.let {
+        interactor.let {
             it.doGoogleLoginApiCall()
                     .subscribe(makeCompletableSubscriber(
                             view = getView(),
