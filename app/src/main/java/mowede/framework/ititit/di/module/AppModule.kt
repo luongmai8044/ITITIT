@@ -17,6 +17,8 @@ import mowede.framework.ititit.data.preferences.AppPreferenceHelper
 import mowede.framework.ititit.data.preferences.PreferenceHelper
 import mowede.framework.ititit.di.ApiKeyInfo
 import mowede.framework.ititit.di.PreferenceInfo
+//import mowede.framework.ititit.di.AuthorizationInterceptor
+//import mowede.framework.ititit.di.TokenRenewInterceptor
 import mowede.framework.ititit.util.AppConstants
 import mowede.framework.ititit.util.SchedulerProvider
 import okhttp3.Interceptor
@@ -78,27 +80,33 @@ class AppModule {
                 .build()
     }
 
+    @Provides
+    internal fun provideInterceptors(session: Session, schedulerProvider: SchedulerProvider) : List<out Interceptor>? {
+        return listOf(AuthorizationInterceptor(session, schedulerProvider),
+                TokenRenewInterceptor(session))
+    }
+
     @Provides @Singleton
-    internal fun provideHttpClient(authorizationInterceptor: AuthorizationInterceptor, renewInterceptor: TokenRenewInterceptor) : OkHttpClient {
+    internal fun provideHttpClient(interceptors: List<@JvmSuppressWildcards Interceptor>?) : OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
                 .connectTimeout(AppConstants.CONNECT_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(AppConstants.READ_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(AppConstants.WRITE_TIMEOUT, TimeUnit.SECONDS)
-                .addInterceptor(authorizationInterceptor)
-                .addInterceptor(renewInterceptor)
+
+        interceptors?.let {
+            for (interceptor in interceptors) {
+                okHttpClientBuilder.addInterceptor(interceptor)
+            }
+        }
 
         return okHttpClientBuilder.build()
     }
 
     @Provides
-    internal fun provideAuthorizationInterceptors(session: Session, apiServiceHelper: ApiServiceHelper, schedulerProvider: SchedulerProvider) : Interceptor = AuthorizationInterceptor(session, apiServiceHelper, schedulerProvider)
+    @Singleton
+    internal fun provideDataRepository(repository: NetworkDataRepository): DataRepository = repository
 
     @Provides
-    internal fun provideRenewInterceptors(session: Session) : Interceptor = TokenRenewInterceptor(session)
-
-    @Provides @Singleton
-    internal fun provideDataRepository(repository : NetworkDataRepository) : DataRepository = repository
-
-    @Provides @Singleton
-    internal fun provideSession(userSession: UserSession) : Session = userSession
+    @Singleton
+    internal fun provideSession(userSession: UserSession): Session = userSession
 }

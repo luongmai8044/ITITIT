@@ -9,7 +9,7 @@ import okhttp3.Response
 import javax.inject.Inject
 
 class AuthorizationInterceptor
-@Inject constructor(private val session: Session, private val apiServiceHelper: ApiServiceHelper, private val schedulerProvider: SchedulerProvider)
+@Inject constructor(private val session: Session, private val schedulerProvider: SchedulerProvider)
     : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain?): Response? {
@@ -21,19 +21,19 @@ class AuthorizationInterceptor
             if (code == 401 || code == 403) {
 
                 val authKey = getAuthorizationHeader(session.getEmail(), session.getToken())
-                apiServiceHelper.testPrivateAPI(authKey)
-                        .mapNetworkErrors()
-                        .mapError()
-                        .doOnSuccess {
-                            response -> response.let{
-                                session.saveToken(it.accessToken)
-                                val builder = mainRequest?.let {
-                                    it.newBuilder().header("Authorization", session.getToken())
-                                        .method(mainRequest.method(), mainRequest.body())}
-                                mainResponse = chain?.proceed(builder?.build())
-                            }
-                        }
-                        .compose(schedulerProvider.ioToMainSingleScheduler())
+//                apiServiceHelper.testPrivateAPI(authKey)
+//                        .mapNetworkErrors()
+//                        .mapError()
+//                        .doOnSuccess {
+//                            response -> response.let{
+//                                session.saveToken(it.accessToken)
+//                                val builder = mainRequest?.let {
+//                                    it.newBuilder().header("Authorization", session.getToken())
+//                                        .method(mainRequest.method(), mainRequest.body())}
+//                                mainResponse = chain?.proceed(builder?.build())
+//                            }
+//                        }
+//                        .compose(schedulerProvider.ioToMainSingleScheduler())
 
                 session.invalidate()
             }
