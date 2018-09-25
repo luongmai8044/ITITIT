@@ -5,39 +5,36 @@ import mowede.framework.ititit.ui.base.presenter.BasePresenter
 import mowede.framework.ititit.ui.splash.interactor.SplashMVPInteractor
 import mowede.framework.ititit.ui.splash.view.SplashMVPView
 import mowede.framework.ititit.util.SchedulerProvider
-import mowede.framework.ititit.util.applyThread
 import javax.inject.Inject
 
-class SplashPresenter<V : SplashMVPView, I : SplashMVPInteractor>
-@Inject internal constructor(interactor: I,
+class SplashPresenter
+@Inject internal constructor(interactor: SplashMVPInteractor,
                              disposable: CompositeDisposable,
                              private val schedulerProvider: SchedulerProvider)
-    : BasePresenter<V, I>(interactor = interactor,compositeDisposable = disposable), SplashMVPPresenter<V, I> {
+    : BasePresenter<SplashMVPView, SplashMVPInteractor>(interactor, disposable), SplashMVPPresenter {
 
-    override fun onAttach(view: V?) {
+    override fun onAttach(view: SplashMVPView) {
         super.onAttach(view)
         feedInDatabase()
     }
 
-    private fun feedInDatabase() = interactor?.let {
+    private fun feedInDatabase() = interactor.let {
         compositeDisposable.add(it.seedQuestions()
-                .flatMap { interactor?.seedOptions() }
-                .applyThread()
+                .flatMap { interactor.seedOptions() }
+                .compose(schedulerProvider.ioToMainObservableScheduler())
                 .subscribe {
-                    getView()?.let { decideActivityToOpen() }
+                    view?.let { decideActivityToOpen() }
                 })
     }
 
-    private fun decideActivityToOpen() = getView()?.let {
+    private fun decideActivityToOpen() = view?.let {
         if (isUserLoggedIn())
             it.openMainActivity()
         else
             it.openLoginActivity()
     }
 
-    private fun isUserLoggedIn(): Boolean {
-        interactor?.let { return it.isUserLoggedIn() }
-        return false
-    }
+    private fun isUserLoggedIn(): Boolean =
+        interactor.isUserLoggedIn()
 
 }

@@ -12,7 +12,7 @@ import javax.inject.Inject
 class SplashMVPActivity : BaseActivity(), SplashMVPView {
 
     @Inject
-    lateinit var presenter: SplashMVPPresenter<SplashMVPView, SplashMVPInteractor>
+    lateinit var presenter: SplashMVPPresenter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

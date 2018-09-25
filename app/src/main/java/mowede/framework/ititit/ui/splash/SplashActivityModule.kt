@@ -15,6 +15,6 @@ class SplashActivityModule {
     internal fun provideSplashInteractor(splashInteractor: SplashInteractor): SplashMVPInteractor = splashInteractor
 
     @Provides
-    internal fun provideSplashPresenter(splashPresenter: SplashPresenter<SplashMVPView, SplashMVPInteractor>)
-            : SplashMVPPresenter<SplashMVPView, SplashMVPInteractor> = splashPresenter
+    internal fun provideSplashPresenter(splashPresenter: SplashPresenter)
+            : SplashMVPPresenter = splashPresenter
 }

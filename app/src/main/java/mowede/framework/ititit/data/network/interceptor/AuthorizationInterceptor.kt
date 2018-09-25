@@ -7,7 +7,9 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import java.net.HttpURLConnection
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class AuthorizationInterceptor
 @Inject constructor(private val session: Session,
                     private val tokenServiceHelper: TokenServiceHelper,

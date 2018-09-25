@@ -15,7 +15,7 @@ import javax.inject.Qualifier
 @Retention annotation class APIRetrofit
 
 @Qualifier
-@Retention annotation class ApiKeyInfo
+@Retention annotation class SessionExpiredChannel
 
 @Qualifier
 @Retention annotation class PreferenceInfo
