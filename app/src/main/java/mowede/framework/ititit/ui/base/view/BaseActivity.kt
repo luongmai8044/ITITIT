@@ -42,9 +42,9 @@ abstract class BaseActivity : AppCompatActivity(), MVPView, BaseFragment.CallBac
         ProgressBarFragment.newInstance().show(supportFragmentManager, ProgressBarFragment.TAG)
     }
 
-    override fun showNetworkError() {
+    override fun showError(error : Throwable) {
         hideProgress()
-        Toast.makeText(this, "Network Error", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
     }
 
     private fun performDI() = AndroidInjection.inject(this)

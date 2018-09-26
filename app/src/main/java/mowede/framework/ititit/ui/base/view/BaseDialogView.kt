@@ -59,8 +59,8 @@ abstract class BaseDialogView : DialogFragment(), DialogMVPView {
         getBaseActivity()?.onFragmentDetached(tag)
     }
 
-    override fun showNetworkError(){
-        Toast.makeText(context, "Network Error", 1).show()
+    override fun showError(error: Throwable){
+        Toast.makeText(context, error.message, 1).show()
     }
 
 

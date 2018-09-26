@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
-import mowede.framework.ititit.data.domain.Users
+import mowede.framework.ititit.data.model.Users
 import mowede.framework.ititit.ui.login.interactor.LoginInteractor
 import mowede.framework.ititit.ui.login.presenter.LoginMVPPresenter
 import mowede.framework.ititit.ui.login.presenter.LoginPresenter

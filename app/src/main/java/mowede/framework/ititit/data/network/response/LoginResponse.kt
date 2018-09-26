@@ -2,7 +2,7 @@ package mowede.framework.ititit.data.network.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import mowede.framework.ititit.data.domain.Users
+import mowede.framework.ititit.data.model.Users
 import mowede.framework.ititit.data.network.DomainMappable
 
 data class LoginResponse(@Expose

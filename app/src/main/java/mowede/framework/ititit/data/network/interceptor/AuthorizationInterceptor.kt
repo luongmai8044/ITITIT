@@ -1,6 +1,6 @@
 package mowede.framework.ititit.data.network.interceptor
 
-import mowede.framework.ititit.data.domain.HttpCallFailureException
+import mowede.framework.ititit.data.model.HttpCallFailureException
 import mowede.framework.ititit.data.network.Session
 import mowede.framework.ititit.data.network.TokenServiceHelper
 import okhttp3.Interceptor
@@ -63,7 +63,7 @@ class AuthorizationInterceptor
 
         token?.let { builder.addHeader("Authorization", "Bearer $token") }
 
-        return chain.proceed(originalRequest)
+        return chain.proceed(builder.build())
     }
 
     interface SessionExpiredListener {
