@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
-import mowede.framework.ititit.data.model.Users
+import mowede.framework.ititit.data.model.User
 import mowede.framework.ititit.ui.login.interactor.LoginInteractor
 import mowede.framework.ititit.ui.login.presenter.LoginMVPPresenter
 import mowede.framework.ititit.ui.login.presenter.LoginPresenter
@@ -80,7 +80,7 @@ class LoginPresenterTest {
         val password = "123456"
 
         // Given
-        val loginSingle = Single.just(Users("bac", "email"))
+        val loginSingle = Single.just(User("bac", "email"))
         whenever(loginInteractor.doServerLoginApiCall(email, password)).thenReturn(loginSingle)
 
         // When
@@ -102,7 +102,7 @@ class LoginPresenterTest {
         val password = "123456"
 
         // Given
-        val loginSingle = Single.error<Users>(NoSuchElementException())
+        val loginSingle = Single.error<User>(NoSuchElementException())
         whenever(loginInteractor.doServerLoginApiCall(email, password)).thenReturn(loginSingle)
 
         // When
