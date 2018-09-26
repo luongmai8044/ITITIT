@@ -4,11 +4,11 @@
 This repository contains an Android framework that implements MVP architecture in Kotlin using Dagger2, Room, RxJava, Retrofit2
 
 # Architecture
-![MVP Architecture](https://janishar.github.io/images/mvp-app-pics/mvp-interactor-arch.png)
+![MVP Architecture]()
 <br>
 
 # Project Structure
-![Structure](https://janishar.github.io/images/mvp-app-pics/mvp-interactor-project-structure.png)
+![Structure]()
 <br>
 
 #### The framework has following packages:
