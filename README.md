@@ -4,11 +4,11 @@
 This repository contains an Android framework that implements MVP architecture in Kotlin using Dagger2, Room, RxJava, Retrofit2
 
 # Architecture
-![MVP Architecture](http://lab.mowede.com/it-it-it/mwd-android-app/blob/master/ITITIT-mvp-interactor-arch.png)
+![MVP Architecture](ITITIT-mvp-interactor-arch.png)
 <br>
 
 # Project Structure
-![Structure](http://lab.mowede.com/it-it-it/mwd-android-app/blob/master/ITITIT-framework-struct.png)
+![Structure](ITITIT-framework-struct.png)
 <br>
 
 #### The framework has following packages:
