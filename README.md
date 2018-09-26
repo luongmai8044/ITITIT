@@ -17,8 +17,6 @@ This repository contains an Android framework that implements MVP architecture i
 3. **ui**: View classes along with their corresponding Presenters.
 4. **utils**: Utility classes.
 
-#### Classes have been designed in such a way that it could be inherited and maximize the code reuse.
-
 ### Library:
 1. RxJava2: https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 2. Dagger2: https://github.com/google/dagger
