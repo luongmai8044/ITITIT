@@ -1,14 +1,11 @@
 package mowede.framework.ititit.ui.base.presenter
 
-import mowede.framework.ititit.ui.base.interactor.MVPInteractor
 import mowede.framework.ititit.ui.base.view.MVPView
 
-interface MVPPresenter<V : MVPView, I : MVPInteractor> {
+interface MVPPresenter<in V : MVPView> {
 
-    fun onAttach(view: V?)
+    fun onAttach(view: V)
 
     fun onDetach()
-
-    fun getView(): V?
 
 }

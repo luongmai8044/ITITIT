@@ -1,6 +1,5 @@
 package mowede.framework.ititit.di.module
 
-import android.app.Application
 import android.arch.persistence.room.Room
 import android.content.Context
 import com.androidnetworking.interceptors.HttpLoggingInterceptor
@@ -41,10 +40,6 @@ class AppModule {
     @Singleton
     internal fun provideAppDatabase(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, AppConstants.APP_DB_NAME).build()
-
-    @Provides
-    @ApiKeyInfo
-    internal fun provideApiKey(): String = BuildConfig.API_KEY
 
     @Provides
     @PreferenceInfo
@@ -98,19 +93,13 @@ class AppModule {
     }
 
     @Provides
-    @Singleton
-    internal fun provideAuthorizationInterceptor(session: Session, tokenServiceHelper: TokenServiceHelper, application: ITITITApp): AuthorizationInterceptor {
-        return AuthorizationInterceptor(session, tokenServiceHelper, application as AuthorizationInterceptor.SessionExpiredListener)
-    }
-
-    @Provides
     internal fun provideInterceptors(authorizationInterceptor: AuthorizationInterceptor,
                                      httpLoggingInterceptor: HttpLoggingInterceptor): List<Interceptor> {
         return listOf(authorizationInterceptor, httpLoggingInterceptor)
     }
 
     @Provides
-    internal fun provideHTTPLogInterceptor() : HttpLoggingInterceptor{
+    internal fun provideHTTPLogInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         }
@@ -146,7 +135,12 @@ class AppModule {
     @Singleton
     internal fun provideSession(userSession: UserSession): Session = userSession
 
-    @Provides @Singleton
-    internal fun provideSessionTimeoutEmiiter(application: ITITITApp) : Completable =
+    @Provides
+    @SessionExpiredChannel
+    internal fun provideSessionExpiredChannel(application: ITITITApp): Completable =
             application.sessionExpiredChannel
+
+    @Provides
+    @Singleton
+    internal fun provideSessionExpiredListener(application: ITITITApp): AuthorizationInterceptor.SessionExpiredListener = application
 }

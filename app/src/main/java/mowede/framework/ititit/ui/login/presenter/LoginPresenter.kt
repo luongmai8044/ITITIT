@@ -15,22 +15,22 @@ class LoginPresenter
 
     override fun onServerLoginClicked(email: String, password: String) {
         when {
-            email.isEmpty() -> getView()?.showValidationMessage(AppConstants.EMPTY_EMAIL_ERROR)
-            password.isEmpty() -> getView()?.showValidationMessage(AppConstants.EMPTY_PASSWORD_ERROR)
+            email.isEmpty() -> view?.showValidationMessage(AppConstants.EMPTY_EMAIL_ERROR)
+            password.isEmpty() -> view?.showValidationMessage(AppConstants.EMPTY_PASSWORD_ERROR)
             else -> {
-                getView()?.showProgress()
+                view?.showProgress()
                 interactor.doServerLoginApiCall(email, password)
-                        .subscribe(makeSingleSubscriber(getView(),
+                        .subscribe(makeSingleSubscriber(view,
                                 { user ->
-                                    getView()?.hideProgress()
-                                    getView()?.openMainActivity()
+                                    view?.hideProgress()
+                                    view?.openMainActivity()
                                 },
                                 { throwable ->
-                                    getView()?.hideProgress()
+                                    view?.hideProgress()
                                     when (throwable) {
                                         is NoSuchElementException -> {
                                             println(throwable)
-                                            getView()?.showAnError()
+                                            view?.showAnError()
                                             false
                                         }
                                         else -> {
@@ -43,21 +43,21 @@ class LoginPresenter
     }
 
     override fun onFBLoginClicked() {
-        getView()?.showProgress()
+        view?.showProgress()
         interactor.doFBLoginApiCall()
                 .subscribe(makeCompletableSubscriber(
-                        view = getView(),
-                        onComplete = { getView()?.openMainActivity() }
+                        view = view,
+                        onComplete = { view?.openMainActivity() }
                 ))
     }
 
     override fun onGoogleLoginClicked() {
-        getView()?.showProgress()
+        view?.showProgress()
         interactor.let {
             it.doGoogleLoginApiCall()
                     .subscribe(makeCompletableSubscriber(
-                            view = getView(),
-                            onComplete = { getView()?.openMainActivity() }
+                            view = view,
+                            onComplete = { view?.openMainActivity() }
                     ))
         }
 

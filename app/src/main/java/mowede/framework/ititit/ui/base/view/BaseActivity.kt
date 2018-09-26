@@ -6,13 +6,15 @@ import android.widget.Toast
 import dagger.android.AndroidInjection
 import io.reactivex.Completable
 import io.reactivex.disposables.CompositeDisposable
+import mowede.framework.ititit.di.SessionExpiredChannel
 import mowede.framework.ititit.util.extension.ProgressBarFragment
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity(), MVPView, BaseFragment.CallBack {
 
-    @Inject
+    @Inject @field:SessionExpiredChannel
     lateinit var sessionExpiredChannel: Completable
+
     @Inject
     lateinit var compositeDisposable: CompositeDisposable
 
