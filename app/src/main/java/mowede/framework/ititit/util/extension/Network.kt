@@ -1,9 +1,9 @@
 package mowede.framework.ititit.util.extension
 
 import io.reactivex.Single
-import mowede.framework.ititit.data.domain.HttpCallFailureException
-import mowede.framework.ititit.data.domain.NoNetworkException
-import mowede.framework.ititit.data.domain.ServerUnreachableException
+import mowede.framework.ititit.data.model.HttpCallFailureException
+import mowede.framework.ititit.data.model.NoNetworkException
+import mowede.framework.ititit.data.model.ServerUnreachableException
 import mowede.framework.ititit.data.network.DomainMappable
 import mowede.framework.ititit.util.CommonUtil
 import retrofit2.HttpException

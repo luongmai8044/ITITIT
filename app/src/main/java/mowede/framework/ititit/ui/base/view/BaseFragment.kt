@@ -45,8 +45,8 @@ abstract class BaseFragment : Fragment(), MVPView {
         ProgressBarFragment.newInstance().show(fragmentManager, ProgressBarFragment.TAG)
     }
 
-    override fun showNetworkError(){
-        Toast.makeText(context, "Network Error", 1).show()
+    override fun showError(error: Throwable){
+        Toast.makeText(context, error.message, 1).show()
     }
 
 

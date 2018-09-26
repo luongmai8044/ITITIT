@@ -6,6 +6,6 @@ interface MVPView {
 
     fun hideProgress()
 
-    fun showNetworkError()
+    fun showError(error : Throwable)
 
 }

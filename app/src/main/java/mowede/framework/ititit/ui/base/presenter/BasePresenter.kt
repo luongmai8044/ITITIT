@@ -37,7 +37,7 @@ internal constructor(protected var interactor: I, protected val compositeDisposa
 
             override fun onError(e: Throwable) {
                 val needHandleError = onError.invoke(e)
-                if (needHandleError) view?.showNetworkError()
+                if (needHandleError) view?.showError(e)
             }
 
             override fun onSubscribe(d: Disposable) {
@@ -60,7 +60,7 @@ internal constructor(protected var interactor: I, protected val compositeDisposa
 
             override fun onError(e: Throwable) {
                 val needHandleError = onError?.invoke(e) ?: true
-                if (needHandleError) view?.showNetworkError()
+                if (needHandleError) view?.showError(e)
             }
 
             override fun onSubscribe(d: Disposable) {
