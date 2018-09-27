@@ -38,25 +38,22 @@ ext {
 
     // App dependencies
     kotlinVersion = kotlinVersion
-    supportLibraryVersion = '26.1.0'
+    supportLibraryVersion = '27.0.0'
     gsonVersion = '2.8.0'
-    calligraphyVersion = '2.2.0'
-    glideVersion = '3.7.0'
-    rx2FastAndroidNetworking = '1.0.1'
     dagger2Version = '2.11'
     rxjava2Version = '2.0.6'
     rxandroidVersion = '2.0.1'
     butterKnifeVersion = '8.8.1'
     roomDatabaseVersion = '1.1.1'
-    placeholderviewVersion = '0.6.1'
     debugDBVersion = '1.0.3'
-    timberVersion = '4.6.0'
+    timberVersion = '4.7.1'
     retrofit_version = '2.3.0'
     moshiVersion = '1.5.0'
+    calligraphyVersion = '2.2.0'
+    httpLoggingInterceptor = '3.11.0'
 
     //Test dependencies
     junitVersion = '4.12'
-    espressoVersion = '2.2.2'
     mockitoVersion = '2.8.9'
     androidKTXVersion = '0.1'
     mockitoKotlinVersion = '2.0.0-RC1'
