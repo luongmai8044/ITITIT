@@ -2,6 +2,8 @@ package mowede.framework.ititit.di.module
 
 import android.arch.persistence.room.Room
 import android.content.Context
+import com.github.nkzawa.socketio.client.IO
+import com.github.nkzawa.socketio.client.Socket
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Completable
@@ -26,6 +28,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.net.URISyntaxException
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -143,4 +146,14 @@ class AppModule {
     @Provides
     @Singleton
     internal fun provideSessionExpiredListener(application: ITITITApp): AuthorizationInterceptor.SessionExpiredListener = application
+
+    @Provides
+    @Singleton
+    internal fun provideSocketIO(): Socket? {
+        return try {
+            IO.socket(AppConstants.SOCKET_URL)
+        }catch (ex : URISyntaxException){
+            null
+        }
+    }
 }

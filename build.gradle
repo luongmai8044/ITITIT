@@ -51,6 +51,7 @@ ext {
     moshiVersion = '1.5.0'
     calligraphyVersion = '2.2.0'
     httpLoggingInterceptor = '3.11.0'
+    socketIOVersion = '0.3.0'
 
     //Test dependencies
     junitVersion = '4.12'

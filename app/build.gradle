@@ -124,4 +124,7 @@ dependencies {
 
     // font
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
+    // socket.io
+    compile "com.github.nkzawa:socket.io-client:$rootProject.socketIOVersion"
 }
