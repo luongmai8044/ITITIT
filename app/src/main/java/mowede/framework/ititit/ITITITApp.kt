@@ -11,6 +11,7 @@ import mowede.framework.ititit.di.component.DaggerAppComponent
 import mowede.framework.ititit.util.timber.DebugLogTree
 import mowede.framework.ititit.util.timber.ReleaseLogTree
 import timber.log.Timber
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import javax.inject.Inject
 
 
@@ -38,6 +39,12 @@ class ITITITApp : Application(), HasActivityInjector, AuthorizationInterceptor.S
         }else{
             Timber.plant(ReleaseLogTree())
         }
+
+        CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/RobotoCondensed-Regular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        )
     }
 
     override fun onSessionExpired() {

@@ -54,7 +54,9 @@
           android:inputType="textEmailAddress"
           android:maxLength="50"
           android:textColor="@color/black_effective"
-          android:textSize="18sp"/>
+          android:textSize="18sp"
+          fontPath="fonts/Roboto-Bold.ttf"
+            />
 
       </android.support.design.widget.TextInputLayout>
 

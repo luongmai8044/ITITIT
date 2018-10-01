@@ -1,5 +1,6 @@
 package mowede.framework.ititit.ui.base.view
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
@@ -9,6 +10,9 @@ import io.reactivex.disposables.CompositeDisposable
 import mowede.framework.ititit.di.SessionExpiredChannel
 import mowede.framework.ititit.util.extension.ProgressBarFragment
 import javax.inject.Inject
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+
+
 
 abstract class BaseActivity : AppCompatActivity(), MVPView, BaseFragment.CallBack {
 
@@ -48,5 +52,9 @@ abstract class BaseActivity : AppCompatActivity(), MVPView, BaseFragment.CallBac
     }
 
     private fun performDI() = AndroidInjection.inject(this)
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
 
 }
