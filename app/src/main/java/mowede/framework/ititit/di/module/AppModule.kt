@@ -17,6 +17,9 @@ import mowede.framework.ititit.data.database.repository.questions.QuestionRepo
 import mowede.framework.ititit.data.database.repository.questions.QuestionRepository
 import mowede.framework.ititit.data.network.*
 import mowede.framework.ititit.data.network.interceptor.AuthorizationInterceptor
+import mowede.framework.ititit.data.network.realtime.EventListener
+import mowede.framework.ititit.data.network.realtime.EventService
+import mowede.framework.ititit.data.network.realtime.SocketIOService
 import mowede.framework.ititit.data.preferences.AppPreferenceHelper
 import mowede.framework.ititit.data.preferences.PreferenceHelper
 import mowede.framework.ititit.di.*
@@ -149,11 +152,10 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideSocketIO(): Socket? {
-        return try {
-            IO.socket(AppConstants.SOCKET_URL)
-        }catch (ex : URISyntaxException){
-            null
-        }
-    }
+    internal fun provideEventService(eventService: SocketIOService): EventService = eventService
+
+    @Provides
+    @Singleton
+    internal fun provideEventDataRepository(eventService: EventService) : EventDataRepository = EventDataRepository(eventService)
+
 }

@@ -1,7 +1,9 @@
 package mowede.framework.ititit.ui.login.presenter
 
 import io.reactivex.disposables.CompositeDisposable
-import mowede.framework.ititit.ui.base.presenter.BasePresenter
+import mowede.framework.ititit.data.model.UserEventType
+import mowede.framework.ititit.data.network.EventDataRepository
+import mowede.framework.ititit.ui.base.presenter.BaseEventPresenter
 import mowede.framework.ititit.ui.login.interactor.LoginInteractor
 import mowede.framework.ititit.ui.login.interactor.LoginMVPInteractor
 import mowede.framework.ititit.ui.login.view.LoginMVPView
@@ -11,8 +13,19 @@ import javax.inject.Inject
 
 class LoginPresenter
 @Inject internal constructor(interactor: LoginInteractor,
-                             disposable: CompositeDisposable)
-    : BasePresenter<LoginMVPView, LoginMVPInteractor>(interactor, disposable), LoginMVPPresenter {
+                             disposable: CompositeDisposable,
+                             private val eventDataRepository: EventDataRepository)
+    : BaseEventPresenter<LoginMVPView, LoginMVPInteractor>(interactor, disposable, eventDataRepository), LoginMVPPresenter {
+
+    override fun onAttach(view: LoginMVPView) {
+        eventDataRepository.onEventChanel.subscribe {
+            it.apply {
+                if (this.type == UserEventType.NEW_USER_LOGIN.value){
+                    view.notifyNewUserLogin()
+                }
+            }
+        }
+    }
 
     override fun onServerLoginClicked(email: String, password: String) {
         Timber.i("Sample Log")

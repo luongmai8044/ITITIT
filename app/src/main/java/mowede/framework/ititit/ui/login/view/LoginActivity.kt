@@ -49,9 +49,25 @@ class LoginActivity : BaseActivity(), LoginMVPView {
 
     }
 
+    override fun notifyNewUserLogin() {
+        Toast.makeText(this, "Have a new user is joined", Toast.LENGTH_LONG).show()
+    }
+
     private fun setOnClickListeners() {
         btnServerLogin.setOnClickListener { presenter.onServerLoginClicked(et_email.text.toString(), et_password.text.toString()) }
         ibGoogleLogin.setOnClickListener { presenter.onGoogleLoginClicked() }
         ibFbLogin.setOnClickListener { presenter.onFBLoginClicked() }
+    }
+
+    override fun onConnect() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onDisconnect() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onConnectError() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

@@ -8,10 +8,10 @@ import mowede.framework.ititit.ui.base.interactor.MVPInteractor
 import mowede.framework.ititit.ui.base.view.MVPView
 
 abstract class BasePresenter<V : MVPView, I : MVPInteractor>
-internal constructor(protected var interactor: I, protected val compositeDisposable: CompositeDisposable) : MVPPresenter<V> {
+internal constructor(protected open var interactor: I, protected open val compositeDisposable: CompositeDisposable) : MVPPresenter<V> {
 
     var view: V? = null
-        private set
+        protected set
     private val isViewAttached: Boolean get() = view != null
 
     override fun onAttach(view: V) {
