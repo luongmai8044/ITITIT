@@ -14,7 +14,8 @@ object AppConstants {
     internal val NULL_INDEX = -1L
     internal val CONNECT_TIMEOUT = 30L
     internal val READ_TIMEOUT = 30L
-internal val WRITE_TIMEOUT = 30L
+    internal val WRITE_TIMEOUT = 30L
+    internal val MAX_RETRY_VALUE = 5
 
     enum class LoggedInMode constructor(val type: Int) {
         LOGGED_IN_MODE_LOGGED_OUT(0),
