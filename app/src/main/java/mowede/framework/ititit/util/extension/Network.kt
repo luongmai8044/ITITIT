@@ -1,12 +1,16 @@
 package mowede.framework.ititit.util.extension
 
+import io.reactivex.Flowable
 import io.reactivex.Single
+import io.reactivex.functions.BiFunction
 import mowede.framework.ititit.data.model.HttpCallFailureException
+import mowede.framework.ititit.data.model.MaxRetriesExceededException
 import mowede.framework.ititit.data.model.NoNetworkException
 import mowede.framework.ititit.data.model.ServerUnreachableException
 import mowede.framework.ititit.data.network.DomainMappable
 import mowede.framework.ititit.util.CommonUtil
 import retrofit2.HttpException
+import timber.log.Timber
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
@@ -32,3 +36,16 @@ inline fun <reified T : R, R> Single<R>.mapError(): Single<R> =
                 Single.error(error)
             }
         }
+
+fun <T,R> Single<T>.retry(count: Int, action : (Throwable) -> Flowable<R>) : Single<T>{
+    return this.retryWhen {
+        errors -> Flowable.zip(errors, Flowable.range(1, Int.MAX_VALUE) , BiFunction<Throwable, Int, Pair<Throwable, Int>>{ item, count -> Pair(item, count) })
+            .flatMap { item -> if (item.second < count) {
+                Timber.d("RETRY REQUEST")
+                action.invoke(item.first)
+                } else {
+                    Flowable.error<T>(MaxRetriesExceededException(item.first))
+                }
+            }
+    }
+}
