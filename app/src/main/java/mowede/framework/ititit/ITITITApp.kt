@@ -6,7 +6,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import io.reactivex.Completable
 import io.reactivex.CompletableEmitter
-import mowede.framework.ititit.data.network.interceptor.AuthorizationInterceptor
+import mowede.framework.ititit.datasource.remote.interceptor.AuthorizationInterceptor
 import mowede.framework.ititit.di.component.DaggerAppComponent
 import mowede.framework.ititit.util.timber.DebugLogTree
 import mowede.framework.ititit.util.timber.ReleaseLogTree

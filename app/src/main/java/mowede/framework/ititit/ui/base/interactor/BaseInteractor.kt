@@ -1,10 +1,10 @@
 package mowede.framework.ititit.ui.base.interactor
 
-import mowede.framework.ititit.data.network.DataRepository
-import mowede.framework.ititit.data.preferences.PreferenceHelper
+import mowede.framework.ititit.repository.AppDataRepository
+import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import mowede.framework.ititit.util.AppConstants
 
-open class BaseInteractor(val preferenceHelper: PreferenceHelper, val dataRepository: DataRepository)
+open class BaseInteractor(val preferenceHelper: PreferenceHelper, val dataRepository: AppDataRepository)
     : MVPInteractor {
 
     override fun isUserLoggedIn() = this.preferenceHelper.getCurrentUserLoggedInMode() != AppConstants.LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT.type
