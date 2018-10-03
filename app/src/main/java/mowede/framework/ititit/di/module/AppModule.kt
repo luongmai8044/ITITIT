@@ -8,15 +8,14 @@ import io.reactivex.Completable
 import io.reactivex.disposables.CompositeDisposable
 import mowede.framework.ititit.BuildConfig
 import mowede.framework.ititit.ITITITApp
-import mowede.framework.ititit.data.database.AppDatabase
-import mowede.framework.ititit.data.database.repository.options.OptionsRepo
-import mowede.framework.ititit.data.database.repository.options.OptionsRepository
-import mowede.framework.ititit.data.database.repository.questions.QuestionRepo
-import mowede.framework.ititit.data.database.repository.questions.QuestionRepository
-import mowede.framework.ititit.data.network.*
-import mowede.framework.ititit.data.network.interceptor.AuthorizationInterceptor
-import mowede.framework.ititit.data.preferences.AppPreferenceHelper
-import mowede.framework.ititit.data.preferences.PreferenceHelper
+import mowede.framework.ititit.repository.AppDataRepository
+import mowede.framework.ititit.datasource.local.AppDatabase
+import mowede.framework.ititit.datasource.local.LocalDataHelper
+import mowede.framework.ititit.datasource.local.AppLocalDataHelper
+import mowede.framework.ititit.datasource.remote.*
+import mowede.framework.ititit.datasource.remote.interceptor.AuthorizationInterceptor
+import mowede.framework.ititit.datasource.preferences.AppPreferenceHelper
+import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import mowede.framework.ititit.di.*
 import mowede.framework.ititit.util.AppConstants
 import mowede.framework.ititit.util.SchedulerProvider
@@ -50,14 +49,6 @@ class AppModule {
     internal fun providePrefHelper(appPreferenceHelper: AppPreferenceHelper): PreferenceHelper = appPreferenceHelper
 
     @Provides
-    @Singleton
-    internal fun provideQuestionRepoHelper(appDatabase: AppDatabase): QuestionRepo = QuestionRepository(appDatabase.questionsDao())
-
-    @Provides
-    @Singleton
-    internal fun provideOptionsRepoHelper(appDatabase: AppDatabase): OptionsRepo = OptionsRepository(appDatabase.optionsDao())
-
-    @Provides
     internal fun provideCompositeDisposable(): CompositeDisposable = CompositeDisposable()
 
     @Provides
@@ -70,6 +61,10 @@ class AppModule {
     @Provides
     @Singleton
     internal fun provideTokenServiceHelper(@TokenRetrofit retrofit: Retrofit) = TokenServiceHelper.create(retrofit)
+
+    @Provides
+    @Singleton
+    internal fun provideLocalDataHelper(appDatabase: AppDatabase): LocalDataHelper = AppLocalDataHelper(appDatabase)
 
     @Provides
     @APIRetrofit
@@ -129,7 +124,9 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideDataRepository(repository: NetworkDataRepository): DataRepository = repository
+    internal fun provideDataRepository(apiServiceHelper: ApiServiceHelper,
+                                       preferenceHelper: PreferenceHelper,
+                                       localDataHelper: LocalDataHelper): AppDataRepository = AppDataRepository(apiServiceHelper, preferenceHelper, localDataHelper)
 
     @Provides
     @Singleton

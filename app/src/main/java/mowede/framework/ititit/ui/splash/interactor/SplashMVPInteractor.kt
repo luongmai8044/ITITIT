@@ -1,6 +1,6 @@
 package mowede.framework.ititit.ui.splash.interactor
 
-import mowede.framework.ititit.data.database.repository.questions.Question
+import mowede.framework.ititit.datasource.local.questions.Question
 import mowede.framework.ititit.ui.base.interactor.MVPInteractor
 import io.reactivex.Observable
 
