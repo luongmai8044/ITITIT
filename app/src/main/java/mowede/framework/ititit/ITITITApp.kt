@@ -8,6 +8,9 @@ import io.reactivex.Completable
 import io.reactivex.CompletableEmitter
 import mowede.framework.ititit.data.network.interceptor.AuthorizationInterceptor
 import mowede.framework.ititit.di.component.DaggerAppComponent
+import mowede.framework.ititit.util.timber.DebugLogTree
+import mowede.framework.ititit.util.timber.ReleaseLogTree
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -28,6 +31,13 @@ class ITITITApp : Application(), HasActivityInjector, AuthorizationInterceptor.S
                 .application(this)
                 .build()
                 .inject(this)
+
+        if(BuildConfig.DEBUG){
+            Timber.uprootAll()
+            Timber.plant(DebugLogTree())
+        }else{
+            Timber.plant(ReleaseLogTree())
+        }
     }
 
     override fun onSessionExpired() {

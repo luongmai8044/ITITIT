@@ -2,11 +2,13 @@ package mowede.framework.ititit.ui.splash.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import mowede.framework.ititit.R
 import mowede.framework.ititit.ui.base.view.BaseActivity
 import mowede.framework.ititit.ui.login.view.LoginActivity
 import mowede.framework.ititit.ui.splash.interactor.SplashMVPInteractor
 import mowede.framework.ititit.ui.splash.presenter.SplashMVPPresenter
+import timber.log.Timber
 import javax.inject.Inject
 
 class SplashMVPActivity : BaseActivity(), SplashMVPView {
@@ -39,6 +41,7 @@ class SplashMVPActivity : BaseActivity(), SplashMVPView {
     }
 
     override fun openMainActivity() {
+        Timber.log(Log.DEBUG,"Opening Main Screen")
     }
 
     override fun openLoginActivity() {

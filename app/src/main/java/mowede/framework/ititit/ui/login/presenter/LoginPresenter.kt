@@ -6,6 +6,7 @@ import mowede.framework.ititit.ui.login.interactor.LoginInteractor
 import mowede.framework.ititit.ui.login.interactor.LoginMVPInteractor
 import mowede.framework.ititit.ui.login.view.LoginMVPView
 import mowede.framework.ititit.util.AppConstants
+import timber.log.Timber
 import javax.inject.Inject
 
 class LoginPresenter
@@ -14,6 +15,7 @@ class LoginPresenter
     : BasePresenter<LoginMVPView, LoginMVPInteractor>(interactor, disposable), LoginMVPPresenter {
 
     override fun onServerLoginClicked(email: String, password: String) {
+        Timber.i("Sample Log")
         when {
             email.isEmpty() -> view?.showValidationMessage(AppConstants.EMPTY_EMAIL_ERROR)
             password.isEmpty() -> view?.showValidationMessage(AppConstants.EMPTY_PASSWORD_ERROR)

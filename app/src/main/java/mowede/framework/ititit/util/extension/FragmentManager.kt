@@ -2,8 +2,6 @@ package mowede.framework.ititit.util.extension
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.widget.ImageView
-import com.bumptech.glide.Glide
 import mowede.framework.ititit.R
 
 internal fun FragmentManager.removeFragment(tag: String,

@@ -1,3 +1,5 @@
+import com.android.builder.internal.BaseConfigImpl
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -19,19 +21,42 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
-            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"http://www.mocky.io/v2/\"")
-            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }
+    flavorDimensions("version")
+    productFlavors{
+        dev{
+            dimension "version"
+            applicationIdSuffix ".dev"
+            addConstant("BASE_URL", "http://www.mocky.io/v2/", it)
+            addConstant("API_KEY", "ABCXYZ123TEST", it)
+        }
+        stage{
+            dimension "version"
+            applicationIdSuffix ".stage"
+            addConstant("BASE_URL", "http://www.mocky.io/v2/", it)
+            addConstant("API_KEY", "ABCXYZ123TEST", it)
+        }
+        live{
+            dimension "version"
+            applicationIdSuffix ".live"
+            addConstant("BASE_URL", "http://www.mocky.io/v2/", it)
+            addConstant("API_KEY", "ABCXYZ123TEST", it)
+        }
+    }
+
     defaultConfig {
         multiDexEnabled  true
     }
+}
+
+static def addConstant(constantName, constantValue, BaseConfigImpl configImpl) {
+    configImpl.manifestPlaceholders += [(constantName): constantValue]
+    configImpl.buildConfigField "String", "${constantName}", "\"${constantValue}\""
 }
 
 dependencies {
@@ -49,7 +74,6 @@ dependencies {
     implementation "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
 
     // network
-    implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
@@ -59,14 +83,10 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     kapt "android.arch.persistence.room:compiler:$rootProject.roomDatabaseVersion"
 
-    // font
-    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
-
-    // image
-    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
     // parser
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$rootProject.moshiVersion"
 
     // debug database
     debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
@@ -85,11 +105,9 @@ dependencies {
     implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
     kapt "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
 
-    // swipe view
-    implementation "com.mindorks:placeholderview:$rootProject.placeholderviewVersion"
-
     // logger
     implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.httpLoggingInterceptor"
 
     // dependencies for local unit tests
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
@@ -98,14 +116,12 @@ dependencies {
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$rootProject.mockitoKotlinVersion"
 
     // UI Testing
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 
     // Android Kotlin Extension
     implementation "androidx.core:core-ktx:$rootProject.androidKTXVersion"
 
-    // Moshi
-    implementation "com.squareup.moshi:moshi-kotlin:$rootProject.moshiVersion"
+    // font
+    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
 }
