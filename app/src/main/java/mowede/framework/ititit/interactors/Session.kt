@@ -1,19 +1,19 @@
-package mowede.framework.ititit.datasource.remote
+package mowede.framework.ititit.interactors
 
 import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import javax.inject.Inject
 
-interface Session{
+interface Session {
 
-    fun isLoggedIn() : Boolean
+    fun isLoggedIn(): Boolean
     fun invalidate()
     fun saveToken(token: String?)
-    fun getEmail() : String?
-    fun getToken() : String?
+    fun getEmail(): String?
+    fun getToken(): String?
 
 }
 
-class UserSession @Inject constructor(private val preferenceHelper: PreferenceHelper): Session {
+class UserSession @Inject constructor(private val preferenceHelper: PreferenceHelper) : Session {
 
     override fun getToken(): String? {
         return preferenceHelper.getAccessToken()

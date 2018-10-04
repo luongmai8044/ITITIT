@@ -2,6 +2,8 @@ package mowede.framework.ititit.di.module
 
 import android.arch.persistence.room.Room
 import android.content.Context
+import android.content.SharedPreferences
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Completable
@@ -12,11 +14,18 @@ import mowede.framework.ititit.repository.AppDataRepository
 import mowede.framework.ititit.datasource.local.AppDatabase
 import mowede.framework.ititit.datasource.local.LocalDataHelper
 import mowede.framework.ititit.datasource.local.AppLocalDataHelper
+import mowede.framework.ititit.datasource.preferences.AccountPreferences
+import mowede.framework.ititit.datasource.preferences.AccountPreferencesImpl
 import mowede.framework.ititit.datasource.remote.*
 import mowede.framework.ititit.datasource.remote.interceptor.AuthorizationInterceptor
 import mowede.framework.ititit.datasource.preferences.AppPreferenceHelper
 import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import mowede.framework.ititit.di.*
+import mowede.framework.ititit.interactors.Session
+import mowede.framework.ititit.interactors.UserSession
+import mowede.framework.ititit.repository.DataRepository
+import mowede.framework.ititit.repository.UserManager
+import mowede.framework.ititit.repository.UserManagerImpl
 import mowede.framework.ititit.util.AppConstants
 import mowede.framework.ititit.util.SchedulerProvider
 import okhttp3.Interceptor
@@ -37,6 +46,11 @@ class AppModule {
 
     @Provides
     @Singleton
+    internal fun provideSharedPreferences(context: Context, @PreferenceInfo prefName: String): SharedPreferences =
+            context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+
+    @Provides
+    @Singleton
     internal fun provideAppDatabase(context: Context): AppDatabase =
             Room.databaseBuilder(context, AppDatabase::class.java, AppConstants.APP_DB_NAME).build()
 
@@ -47,6 +61,14 @@ class AppModule {
     @Provides
     @Singleton
     internal fun providePrefHelper(appPreferenceHelper: AppPreferenceHelper): PreferenceHelper = appPreferenceHelper
+
+    @Provides
+    @Singleton
+    internal fun provideAccountPreferences(accountPreferencesImpl: AccountPreferencesImpl) : AccountPreferences = accountPreferencesImpl
+
+    @Provides
+    @Singleton
+    internal fun provideUserManager(userManagerImpl: UserManagerImpl) : UserManager = userManagerImpl
 
     @Provides
     internal fun provideCompositeDisposable(): CompositeDisposable = CompositeDisposable()
@@ -76,6 +98,11 @@ class AppModule {
                 .client(httpClient)
                 .build()
     }
+
+    @Provides
+    @Singleton
+    internal fun provideGson(): Gson = Gson()
+
 
     @Provides
     @TokenRetrofit
@@ -124,9 +151,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    internal fun provideDataRepository(apiServiceHelper: ApiServiceHelper,
-                                       preferenceHelper: PreferenceHelper,
-                                       localDataHelper: LocalDataHelper): AppDataRepository = AppDataRepository(apiServiceHelper, preferenceHelper, localDataHelper)
+    internal fun provideDataRepository(repository: AppDataRepository): DataRepository = repository
 
     @Provides
     @Singleton

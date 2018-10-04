@@ -7,17 +7,19 @@ import io.reactivex.Single
 import mowede.framework.ititit.datasource.local.LocalDataHelper
 import mowede.framework.ititit.datasource.local.options.Options
 import mowede.framework.ititit.datasource.local.questions.Question
+import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import mowede.framework.ititit.datasource.remote.ApiServiceHelper
 import mowede.framework.ititit.datasource.remote.request.LoginRequest
-import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import mowede.framework.ititit.repository.model.User
 import mowede.framework.ititit.util.AppConstants
+import mowede.framework.ititit.util.RetryWithDelay
 import mowede.framework.ititit.util.extension.mapError
 import mowede.framework.ititit.util.extension.mapNetworkErrors
 import mowede.framework.ititit.util.extension.mapToDomain
 import mowede.framework.ititit.util.extension.retry
 import retrofit2.HttpException
 import java.net.HttpURLConnection
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class AppDataRepository @Inject constructor(private val apiServiceHelper: ApiServiceHelper,
@@ -50,13 +52,7 @@ class AppDataRepository @Inject constructor(private val apiServiceHelper: ApiSer
 
     override fun performServerLogin(request: LoginRequest.ServerLoginRequest): Single<User> {
         return apiServiceHelper.performServerLogin(request)
-                .retry(AppConstants.MAX_RETRY_VALUE
-                ) { error ->
-                    if (error is HttpException && error.code() == HttpURLConnection.HTTP_UNAUTHORIZED)
-                        Flowable.just("retry").delay(1000, java.util.concurrent.TimeUnit.MILLISECONDS)
-                    else
-                        Flowable.error(error)
-                }
+                .retryWhen(RetryWithDelay(3, 2, TimeUnit.SECONDS))
                 .mapNetworkErrors()
                 .mapError()
                 .mapToDomain()
@@ -64,13 +60,7 @@ class AppDataRepository @Inject constructor(private val apiServiceHelper: ApiSer
 
     override fun performFBLogin(request: LoginRequest.FacebookLoginRequest): Single<User> {
         return apiServiceHelper.performFBLogin(request)
-                .retry(AppConstants.MAX_RETRY_VALUE
-                ) { error ->
-                    if (error is HttpException && error.code() == HttpURLConnection.HTTP_UNAUTHORIZED)
-                        Flowable.just("retry").delay(1000, java.util.concurrent.TimeUnit.MILLISECONDS)
-                    else
-                        Flowable.error(error)
-                }
+                .retryWhen(RetryWithDelay(3, 2, TimeUnit.SECONDS))
                 .mapNetworkErrors()
                 .mapError()
                 .mapToDomain()
@@ -78,13 +68,7 @@ class AppDataRepository @Inject constructor(private val apiServiceHelper: ApiSer
 
     override fun performGoogleLogin(request: LoginRequest.GoogleLoginRequest): Single<User> {
         return apiServiceHelper.performGoogleLogin(request)
-                .retry(AppConstants.MAX_RETRY_VALUE
-                ) { error ->
-                    if (error is HttpException && error.code() == HttpURLConnection.HTTP_UNAUTHORIZED)
-                        Flowable.just("retry").delay(1000, java.util.concurrent.TimeUnit.MILLISECONDS)
-                    else
-                        Flowable.error(error)
-                }
+                .retryWhen(RetryWithDelay(3, 2, TimeUnit.SECONDS))
                 .mapNetworkErrors()
                 .mapError()
                 .mapToDomain()

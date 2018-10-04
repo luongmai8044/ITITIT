@@ -3,11 +3,11 @@ package mowede.framework.ititit.util.extension
 import io.reactivex.Flowable
 import io.reactivex.Single
 import io.reactivex.functions.BiFunction
+import mowede.framework.ititit.datasource.remote.DomainMappable
 import mowede.framework.ititit.repository.model.HttpCallFailureException
 import mowede.framework.ititit.repository.model.MaxRetriesExceededException
 import mowede.framework.ititit.repository.model.NoNetworkException
 import mowede.framework.ititit.repository.model.ServerUnreachableException
-import mowede.framework.ititit.datasource.remote.DomainMappable
 import mowede.framework.ititit.util.CommonUtil
 import retrofit2.HttpException
 import timber.log.Timber
@@ -37,15 +37,16 @@ inline fun <reified T : R, R> Single<R>.mapError(): Single<R> =
             }
         }
 
-fun <T,R> Single<T>.retry(count: Int, action : (Throwable) -> Flowable<R>) : Single<T>{
-    return this.retryWhen {
-        errors -> Flowable.zip(errors, Flowable.range(1, Int.MAX_VALUE) , BiFunction<Throwable, Int, Pair<Throwable, Int>>{ item, count -> Pair(item, count) })
-            .flatMap { item -> if (item.second < count) {
-                Timber.d("RETRY REQUEST")
-                action.invoke(item.first)
-                } else {
-                    Flowable.error<T>(MaxRetriesExceededException(item.first))
+fun <T, R> Single<T>.retry(count: Int, action: (Throwable) -> Flowable<R>): Single<T> {
+    return this.retryWhen { errors ->
+        Flowable.zip(errors, Flowable.range(1, Int.MAX_VALUE), BiFunction<Throwable, Int, Pair<Throwable, Int>> { item, count -> Pair(item, count) })
+                .flatMap { item ->
+                    if (item.second < count) {
+                        Timber.d("RETRY REQUEST")
+                        action.invoke(item.first)
+                    } else {
+                        Flowable.error<T>(MaxRetriesExceededException(item.first))
+                    }
                 }
-            }
     }
 }

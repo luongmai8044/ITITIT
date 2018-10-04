@@ -1,7 +1,7 @@
 package mowede.framework.ititit.datasource.remote.interceptor
 
 import mowede.framework.ititit.repository.model.HttpCallFailureException
-import mowede.framework.ititit.datasource.remote.Session
+import mowede.framework.ititit.interactors.Session
 import mowede.framework.ititit.datasource.remote.TokenServiceHelper
 import okhttp3.Interceptor
 import okhttp3.Response
