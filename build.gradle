@@ -6,15 +6,20 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.0.0.M12.3"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+
+plugins {     id "io.gitlab.arturbosch.detekt" version "1.0.0.M12.3" }
+apply plugin: 'io.gitlab.arturbosch.detekt'
 
 allprojects {
     repositories {
@@ -26,6 +31,16 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+detekt {
+    debug = true
+    version = "1.0.0.M12.3"
+    profile("main") {
+        input = "$projectDir/app/src/main/java"
+        output = "$projectDir/output.xml"
+        config = "$projectDir/detekt-ruleset.yml"
+        filters = ".*test.*,.*/resources/.*,.*/tmp/.*"     }
 }
 
 // Define versions in a single place
