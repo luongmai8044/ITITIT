@@ -21,8 +21,8 @@ import mowede.framework.ititit.datasource.remote.interceptor.AuthorizationInterc
 import mowede.framework.ititit.datasource.preferences.AppPreferenceHelper
 import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import mowede.framework.ititit.di.*
-import mowede.framework.ititit.interactors.Session
-import mowede.framework.ititit.interactors.UserSession
+import mowede.framework.ititit.usecases.Session
+import mowede.framework.ititit.usecases.UserSession
 import mowede.framework.ititit.repository.DataRepository
 import mowede.framework.ititit.repository.UserManager
 import mowede.framework.ititit.repository.UserManagerImpl

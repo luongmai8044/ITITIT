@@ -2,7 +2,7 @@ package mowede.framework.ititit.ui.login.interactor
 
 import io.reactivex.Single
 import mowede.framework.ititit.datasource.remote.request.LoginRequest
-import mowede.framework.ititit.interactors.SingleInteractor
+import mowede.framework.ititit.usecases.SingleInteractor
 import mowede.framework.ititit.repository.DataRepository
 import mowede.framework.ititit.repository.model.User
 import mowede.framework.ititit.util.AppConstants

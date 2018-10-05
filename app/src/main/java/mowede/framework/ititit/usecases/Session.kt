@@ -1,4 +1,4 @@
-package mowede.framework.ititit.interactors
+package mowede.framework.ititit.usecases
 
 import mowede.framework.ititit.datasource.preferences.PreferenceHelper
 import javax.inject.Inject

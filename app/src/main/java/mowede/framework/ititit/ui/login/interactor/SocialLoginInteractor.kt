@@ -2,8 +2,8 @@ package mowede.framework.ititit.ui.login.interactor
 
 import io.reactivex.Completable
 import mowede.framework.ititit.datasource.remote.request.LoginRequest
-import mowede.framework.ititit.interactors.CompletableInteractor
 import mowede.framework.ititit.repository.DataRepository
+import mowede.framework.ititit.usecases.CompletableInteractor
 import mowede.framework.ititit.util.AppConstants
 import mowede.framework.ititit.util.SchedulerProvider
 import javax.inject.Inject

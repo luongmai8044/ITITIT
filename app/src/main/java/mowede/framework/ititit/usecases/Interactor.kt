@@ -1,4 +1,4 @@
-package mowede.framework.ititit.interactors
+package mowede.framework.ititit.usecases
 
 import io.reactivex.Completable
 import io.reactivex.CompletableObserver
