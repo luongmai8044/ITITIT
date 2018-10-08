@@ -1,5 +1,5 @@
 package mowede.framework.ititit.storage.source.remote.api
 
-object ApiPaths {
+object APIPaths {
     const val LOGIN = "login"
 }

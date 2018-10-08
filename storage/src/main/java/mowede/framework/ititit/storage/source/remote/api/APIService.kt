@@ -7,6 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface APIService {
-    @POST(ApiPaths.LOGIN)
+    @POST(APIPaths.LOGIN)
     fun login(@Body data: LoginRequest): Single<LoginResponse>
 }

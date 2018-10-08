@@ -18,7 +18,7 @@ class SplashPresenterImpl @Inject constructor(private val userManager: UserManag
         disposable = Completable.fromAction {}
                 .delay(3, TimeUnit.SECONDS)
                 .subscribe {
-                    if (userManager.getTokenData() != null) {
+                    if (userManager.isLoggedIn()) {
                         view?.navigateToHome()
                     } else {
                         view?.navigateToLogin()
