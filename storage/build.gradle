@@ -17,6 +17,10 @@ android {
     }
 
     buildTypes {
+        debug{
+            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -37,7 +41,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:3.9.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.httpLoggingInterceptor"
 }
 repositories {
     mavenCentral()
