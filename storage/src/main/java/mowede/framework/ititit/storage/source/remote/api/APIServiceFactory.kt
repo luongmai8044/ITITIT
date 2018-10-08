@@ -14,15 +14,15 @@ import java.util.concurrent.TimeUnit
 
 object APIServiceFactory  {
 
-    fun makeAPIService(isDebug: Boolean): APIService {
+    fun makeAPIService(isDebug: Boolean,url: String): APIService {
         val okHttpClient = makeOkHttpClient(
                 makeLoggingInterceptor(isDebug))
-        return makeAPIsService(okHttpClient, makeGson())
+        return makeAPIsService(okHttpClient, makeGson(),url)
     }
 
-    private fun makeAPIsService(okHttpClient: OkHttpClient, gson: Gson): APIService {
+    private fun makeAPIsService(okHttpClient: OkHttpClient, gson: Gson, url: String): APIService {
         val retrofit = Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL)
+                .baseUrl(url)
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
