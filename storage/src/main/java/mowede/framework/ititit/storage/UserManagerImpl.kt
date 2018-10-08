@@ -2,7 +2,7 @@ package mowede.framework.ititit.storage
 
 import io.reactivex.Completable
 import mowede.framework.ititit.DataRepository
-import mowede.framework.ititit.data.source.preferences.UserPreferences
+import mowede.framework.ititit.storage.source.preferences.UserPreferences
 import mowede.framework.ititit.managers.UserManager
 import mowede.framework.ititit.model.User
 import javax.inject.Inject

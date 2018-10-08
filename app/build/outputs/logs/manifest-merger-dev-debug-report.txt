@@ -1,0 +1,189 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+MERGED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:20:1-40:12
+MERGED from [com.android.support:multidex:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/9924353face5fffcc09afc6656f158ce/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/design-27.0.0.aar/d21cbfd332b058ae29c6eb319854b474/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-android-support:2.11] /Users/test/.gradle/caches/transforms-1/files-1.1/dagger-android-support-2.11.aar/0501caa60f4f9ed5f18be57906ac9174/AndroidManifest.xml:16:1-19:12
+MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] /Users/test/.gradle/caches/transforms-1/files-1.1/calligraphy-2.2.0.aar/a8ee28d5b6345658f90ab5c04e501d74/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:appcompat-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.0.aar/b8e0b18a213c8e10e37401d07d3cd1fa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.0.aar/caa5943deb4a46380658e241eace60c2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.0.aar/d9bdeeb3f3235d9c13ca4428104e9a48/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.0.aar/ef985d407d85ba754b9d22f3195bde27/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.0.aar/89ae68d8f187167295090d1d94cb0615/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence.room:rxjava2:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/rxjava2-1.1.1.aar/9578b25b78760c4fa45a053953c4aef9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/95aaeb7f14ec0528d2d9bc77098199fe/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.dagger:dagger-android:2.11] /Users/test/.gradle/caches/transforms-1/files-1.1/dagger-android-2.11.aar/e228614052372cfc8bf4d9604f8dc74f/AndroidManifest.xml:16:1-19:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/test/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/b21ef45c39b39458d988abf9fd463f88/AndroidManifest.xml:15:1-21:12
+MERGED from [com.jakewharton:butterknife:8.8.1] /Users/test/.gradle/caches/transforms-1/files-1.1/butterknife-8.8.1.aar/7b0fb42f9f052d5a4f584456b881b74e/AndroidManifest.xml:2:1-7:12
+MERGED from [com.jakewharton.timber:timber:4.7.1] /Users/test/.gradle/caches/transforms-1/files-1.1/timber-4.7.1.aar/27b75a312724a385bb836a03917824a5/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.core:core-ktx:0.1] /Users/test/.gradle/caches/transforms-1/files-1.1/core-ktx-0.1.aar/a8c6a9c216dfa65cc4da91a47bcf6f7b/AndroidManifest.xml:2:1-7:12
+MERGED from [net.zetetic:android-database-sqlcipher:3.5.7] /Users/test/.gradle/caches/transforms-1/files-1.1/android-database-sqlcipher-3.5.7.aar/f9b6a3473a16876223da7fcb368dc3ec/AndroidManifest.xml:2:1-4:12
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f8b7ca9f42c38a4afabf6b33254fe2c8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.0.aar/7ffbdce8c35816ed3a7c5643eb07b704/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.0.aar/162b56aae0768c5e9960292347aca6dd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.0.aar/1f3713562d248fd0d8b774fba32cde97/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/transition-27.0.0.aar/150325008e29e36736cd0acc4118085a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0456851c95f79fd8a4745ee5e42019de/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/65c58bdd4018fce50532622d3ef368a5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/23a9d8462f9109849aa92695a9c1f411/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.0.aar/74812ae3db06ca27274346830bd37520/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/171d0f906b10f421b1038ebb7e47d53b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/9a091dc83e519c4b4f23c923bb3943d9/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/916f4a0ea7b1ffdad26e30f488340ddc/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+	package
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:3:3-36
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:1-26:12
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:5:3-65
+MERGED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:29:5-67
+MERGED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:29:5-67
+	android:name
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:5:20-62
+application
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:7:3-24:17
+MERGED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:32:5-38:19
+MERGED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:32:5-38:19
+MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] /Users/test/.gradle/caches/transforms-1/files-1.1/calligraphy-2.2.0.aar/a8ee28d5b6345658f90ab5c04e501d74/AndroidManifest.xml:11:5-20
+MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] /Users/test/.gradle/caches/transforms-1/files-1.1/calligraphy-2.2.0.aar/a8ee28d5b6345658f90ab5c04e501d74/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/95aaeb7f14ec0528d2d9bc77098199fe/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/95aaeb7f14ec0528d2d9bc77098199fe/AndroidManifest.xml:9:5-20
+MERGED from [com.jakewharton.timber:timber:4.7.1] /Users/test/.gradle/caches/transforms-1/files-1.1/timber-4.7.1.aar/27b75a312724a385bb836a03917824a5/AndroidManifest.xml:7:5-20
+MERGED from [com.jakewharton.timber:timber:4.7.1] /Users/test/.gradle/caches/transforms-1/files-1.1/timber-4.7.1.aar/27b75a312724a385bb836a03917824a5/AndroidManifest.xml:7:5-20
+	android:supportsRtl
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:13:5-31
+	android:label
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:10:5-37
+	android:roundIcon
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:12:5-50
+	android:icon
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:9:5-39
+	android:allowBackup
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:8:5-32
+	android:theme
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:14:5-36
+	android:name
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:11:5-30
+activity#mowede.framework.ititit.ui.splash.view.SplashMVPActivity
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:15:5-21:16
+	android:name
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:15:15-63
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:16:7-20:23
+action#android.intent.action.MAIN
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:17:9-60
+	android:name
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:17:17-58
+category#android.intent.category.LAUNCHER
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:19:9-68
+	android:name
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:19:19-66
+activity#mowede.framework.ititit.ui.login.view.LoginActivity
+ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:22:5-23:16
+	android:name
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml:22:15-58
+uses-sdk
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+MERGED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:25:5-27:41
+MERGED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:multidex:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/9924353face5fffcc09afc6656f158ce/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/9924353face5fffcc09afc6656f158ce/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/design-27.0.0.aar/d21cbfd332b058ae29c6eb319854b474/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/design-27.0.0.aar/d21cbfd332b058ae29c6eb319854b474/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android-support:2.11] /Users/test/.gradle/caches/transforms-1/files-1.1/dagger-android-support-2.11.aar/0501caa60f4f9ed5f18be57906ac9174/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-android-support:2.11] /Users/test/.gradle/caches/transforms-1/files-1.1/dagger-android-support-2.11.aar/0501caa60f4f9ed5f18be57906ac9174/AndroidManifest.xml:18:3-42
+MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] /Users/test/.gradle/caches/transforms-1/files-1.1/calligraphy-2.2.0.aar/a8ee28d5b6345658f90ab5c04e501d74/AndroidManifest.xml:7:5-9:41
+MERGED from [uk.co.chrisjenx:calligraphy:2.2.0] /Users/test/.gradle/caches/transforms-1/files-1.1/calligraphy-2.2.0.aar/a8ee28d5b6345658f90ab5c04e501d74/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.0.aar/b8e0b18a213c8e10e37401d07d3cd1fa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.0.aar/b8e0b18a213c8e10e37401d07d3cd1fa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.0.aar/caa5943deb4a46380658e241eace60c2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.0.aar/caa5943deb4a46380658e241eace60c2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.0.aar/d9bdeeb3f3235d9c13ca4428104e9a48/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.0.0.aar/d9bdeeb3f3235d9c13ca4428104e9a48/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.0.aar/ef985d407d85ba754b9d22f3195bde27/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.0.aar/ef985d407d85ba754b9d22f3195bde27/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.0.aar/89ae68d8f187167295090d1d94cb0615/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.0.aar/89ae68d8f187167295090d1d94cb0615/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:rxjava2:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/rxjava2-1.1.1.aar/9578b25b78760c4fa45a053953c4aef9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:rxjava2:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/rxjava2-1.1.1.aar/9578b25b78760c4fa45a053953c4aef9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/95aaeb7f14ec0528d2d9bc77098199fe/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/95aaeb7f14ec0528d2d9bc77098199fe/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.dagger:dagger-android:2.11] /Users/test/.gradle/caches/transforms-1/files-1.1/dagger-android-2.11.aar/e228614052372cfc8bf4d9604f8dc74f/AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-android:2.11] /Users/test/.gradle/caches/transforms-1/files-1.1/dagger-android-2.11.aar/e228614052372cfc8bf4d9604f8dc74f/AndroidManifest.xml:18:3-42
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/test/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/b21ef45c39b39458d988abf9fd463f88/AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/test/.gradle/caches/transforms-1/files-1.1/rxandroid-2.0.1.aar/b21ef45c39b39458d988abf9fd463f88/AndroidManifest.xml:19:5-43
+MERGED from [com.jakewharton:butterknife:8.8.1] /Users/test/.gradle/caches/transforms-1/files-1.1/butterknife-8.8.1.aar/7b0fb42f9f052d5a4f584456b881b74e/AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.8.1] /Users/test/.gradle/caches/transforms-1/files-1.1/butterknife-8.8.1.aar/7b0fb42f9f052d5a4f584456b881b74e/AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton.timber:timber:4.7.1] /Users/test/.gradle/caches/transforms-1/files-1.1/timber-4.7.1.aar/27b75a312724a385bb836a03917824a5/AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton.timber:timber:4.7.1] /Users/test/.gradle/caches/transforms-1/files-1.1/timber-4.7.1.aar/27b75a312724a385bb836a03917824a5/AndroidManifest.xml:5:5-43
+MERGED from [androidx.core:core-ktx:0.1] /Users/test/.gradle/caches/transforms-1/files-1.1/core-ktx-0.1.aar/a8c6a9c216dfa65cc4da91a47bcf6f7b/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:0.1] /Users/test/.gradle/caches/transforms-1/files-1.1/core-ktx-0.1.aar/a8c6a9c216dfa65cc4da91a47bcf6f7b/AndroidManifest.xml:5:5-44
+MERGED from [net.zetetic:android-database-sqlcipher:3.5.7] /Users/test/.gradle/caches/transforms-1/files-1.1/android-database-sqlcipher-3.5.7.aar/f9b6a3473a16876223da7fcb368dc3ec/AndroidManifest.xml:3:3-40
+MERGED from [net.zetetic:android-database-sqlcipher:3.5.7] /Users/test/.gradle/caches/transforms-1/files-1.1/android-database-sqlcipher-3.5.7.aar/f9b6a3473a16876223da7fcb368dc3ec/AndroidManifest.xml:3:3-40
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f8b7ca9f42c38a4afabf6b33254fe2c8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f8b7ca9f42c38a4afabf6b33254fe2c8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.0.aar/7ffbdce8c35816ed3a7c5643eb07b704/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.0.aar/7ffbdce8c35816ed3a7c5643eb07b704/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.0.aar/162b56aae0768c5e9960292347aca6dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.0.aar/162b56aae0768c5e9960292347aca6dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.0.aar/1f3713562d248fd0d8b774fba32cde97/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.0.aar/1f3713562d248fd0d8b774fba32cde97/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/transition-27.0.0.aar/150325008e29e36736cd0acc4118085a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/transition-27.0.0.aar/150325008e29e36736cd0acc4118085a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0456851c95f79fd8a4745ee5e42019de/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0456851c95f79fd8a4745ee5e42019de/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/65c58bdd4018fce50532622d3ef368a5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/65c58bdd4018fce50532622d3ef368a5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/23a9d8462f9109849aa92695a9c1f411/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /Users/test/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/23a9d8462f9109849aa92695a9c1f411/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.0.aar/74812ae3db06ca27274346830bd37520/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.0.aar/74812ae3db06ca27274346830bd37520/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/171d0f906b10f421b1038ebb7e47d53b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.0] /Users/test/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.0.aar/171d0f906b10f421b1038ebb7e47d53b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/9a091dc83e519c4b4f23c923bb3943d9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/test/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/9a091dc83e519c4b4f23c923bb3943d9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/916f4a0ea7b1ffdad26e30f488340ddc/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/916f4a0ea7b1ffdad26e30f488340ddc/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/test/MOWEDE/mwd-android-app/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:30:5-76
+	android:name
+		ADDED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:30:22-73
+provider#com.amitshekhar.DebugDBInitProvider
+ADDED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:33:9-37:40
+	android:enabled
+		ADDED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:36:13-35
+	android:authorities
+		ADDED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:35:13-71
+	android:exported
+		ADDED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:37:13-37
+	android:name
+		ADDED from [com.amitshekhar.android:debug-db:1.0.3] /Users/test/.gradle/caches/transforms-1/files-1.1/debug-db-1.0.3.aar/a4d248ac87270d2d96eb56991b5faf77/AndroidManifest.xml:34:13-63

@@ -2,9 +2,9 @@ package mowede.framework.ititit.storage
 
 import io.reactivex.Single
 import mowede.framework.ititit.DataRepository
-import mowede.framework.ititit.data.source.local.LocalDataSource
-import mowede.framework.ititit.data.source.preferences.UserPreferences
-import mowede.framework.ititit.data.source.remote.RemoteDataSource
+import mowede.framework.ititit.storage.source.local.LocalDataSource
+import mowede.framework.ititit.storage.source.preferences.UserPreferences
+import mowede.framework.ititit.storage.source.remote.RemoteDataSource
 import mowede.framework.ititit.model.User
 import mowede.framework.ititit.storage.model.TokenData
 import javax.inject.Inject

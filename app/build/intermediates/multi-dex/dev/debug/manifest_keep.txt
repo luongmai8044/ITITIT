@@ -1,0 +1,3 @@
+# Referenced at /Users/test/MOWEDE/mwd-android-app/app/build/intermediates/manifests/full/dev/debug/AndroidManifest.xml:14
+-keep class mowede.framework.ititit.ITITITApp { <init>(...); }
+

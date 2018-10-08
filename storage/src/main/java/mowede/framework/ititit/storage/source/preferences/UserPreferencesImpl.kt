@@ -1,7 +1,6 @@
 package mowede.framework.ititit.storage.source.preferences
 
 import android.content.SharedPreferences
-import mowede.framework.ititit.data.source.preferences.UserPreferences
 import mowede.framework.ititit.model.User
 import mowede.framework.ititit.storage.model.TokenData
 import javax.inject.Inject

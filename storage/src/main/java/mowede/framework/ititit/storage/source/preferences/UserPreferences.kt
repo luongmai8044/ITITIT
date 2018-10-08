@@ -1,4 +1,4 @@
-package mowede.framework.ititit.data.source.preferences
+package mowede.framework.ititit.storage.source.preferences
 
 import mowede.framework.ititit.model.User
 import mowede.framework.ititit.storage.model.TokenData
