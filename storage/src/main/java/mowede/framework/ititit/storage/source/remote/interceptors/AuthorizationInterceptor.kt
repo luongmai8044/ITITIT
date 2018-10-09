@@ -3,7 +3,7 @@ package mowede.framework.ititit.storage.source.remote.interceptors
 import mowede.framework.ititit.exceptions.ServerException
 import mowede.framework.ititit.storage.model.TokenData
 import mowede.framework.ititit.storage.source.preferences.UserPreferences
-import mowede.framework.ititit.storage.source.remote.api.TokenServiceHelper
+import mowede.framework.ititit.storage.source.remote.api.TokenService
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.net.HttpURLConnection
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Singleton
 class AuthorizationInterceptor
 @Inject constructor(private val userPreferences: UserPreferences,
-                    private val tokenServiceFactory: TokenServiceHelper,
+                    private val tokenServiceFactory: TokenService,
                     private val sessionExpiredListener: SessionExpiredListener)
     : Interceptor {
 

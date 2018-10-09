@@ -5,14 +5,14 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.http.POST
 
-interface TokenServiceHelper {
+interface TokenService {
 
     @POST(APIEndPoint.ENDPOINT_REFRESH_TOKEN)
     fun refreshToken() : Call<TokenDataResponse>
 
     companion object Factory {
-        fun create(retrofit: Retrofit): TokenServiceHelper {
-            return retrofit.create(TokenServiceHelper::class.java)
+        fun create(retrofit: Retrofit): TokenService {
+            return retrofit.create(TokenService::class.java)
         }
     }
 }
