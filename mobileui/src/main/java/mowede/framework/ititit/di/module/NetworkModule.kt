@@ -6,9 +6,10 @@ import io.reactivex.Completable
 import mowede.framework.ititit.App
 import mowede.framework.ititit.BuildConfig
 import mowede.framework.ititit.di.*
-import mowede.framework.ititit.storage.source.remote.api.APIServiceHelper
-import mowede.framework.ititit.storage.source.remote.api.TokenServiceHelper
+import mowede.framework.ititit.storage.source.remote.api.APIService
+import mowede.framework.ititit.storage.source.remote.api.TokenService
 import mowede.framework.ititit.storage.source.remote.interceptors.AuthorizationInterceptor
+import mowede.framework.ititit.storage.source.remote.interceptors.ErrorResponseInterceptor
 import mowede.framework.ititit.utils.AppConstants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -24,11 +25,11 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideApiServiceHelper(@APIRetrofit retrofit: Retrofit): APIServiceHelper = APIServiceHelper.create(retrofit)
+    internal fun provideApiServiceHelper(@APIRetrofit retrofit: Retrofit): APIService = APIService.create(retrofit)
 
     @Provides
     @Singleton
-    internal fun provideTokenServiceHelper(@TokenRetrofit retrofit: Retrofit) = TokenServiceHelper.create(retrofit)
+    internal fun provideTokenServiceHelper(@TokenRetrofit retrofit: Retrofit) = TokenService.create(retrofit)
 
     @Provides
     @APIOkHttpClient
@@ -75,8 +76,9 @@ class NetworkModule {
 
     @Provides
     internal fun provideInterceptors(authorizationInterceptor: AuthorizationInterceptor,
-                                     httpLoggingInterceptor: HttpLoggingInterceptor): List<Interceptor> {
-        return listOf(authorizationInterceptor, httpLoggingInterceptor)
+                                     httpLoggingInterceptor: HttpLoggingInterceptor,
+                                     errorResponseInterceptor: ErrorResponseInterceptor): List<Interceptor> {
+        return listOf(authorizationInterceptor, httpLoggingInterceptor, errorResponseInterceptor)
     }
 
     @Provides
