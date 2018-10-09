@@ -3,10 +3,18 @@ package mowede.framework.ititit.storage.source.remote.api
 import io.reactivex.Single
 import mowede.framework.ititit.storage.entity.response.LoginResponse
 import mowede.framework.ititit.storage.entity.request.LoginRequest
+import retrofit2.Retrofit
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface APIService {
-    @POST(APIPaths.LOGIN)
+interface APIServiceHelper {
+    @POST(APIEndPoint.END_POINT_LOGIN)
     fun login(@Body data: LoginRequest): Single<LoginResponse>
+
+    companion object Factory {
+        fun create(retrofit: Retrofit): APIServiceHelper {
+            return retrofit.create(APIServiceHelper::class.java)
+        }
+    }
+
 }

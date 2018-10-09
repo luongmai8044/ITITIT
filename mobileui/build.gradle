@@ -70,4 +70,10 @@ dependencies {
 
     // Android Kotlin Extension
     implementation "androidx.core:core-ktx:$rootProject.androidKTXVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.httpLoggingInterceptor"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
 }

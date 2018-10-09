@@ -1,17 +1,17 @@
 package mowede.framework.ititit.di.module
 
-import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
-import mowede.framework.ititit.utils.SchedulerProviderImpl
+import mowede.framework.ititit.App
 import mowede.framework.ititit.usecases.SchedulerProvider
+import mowede.framework.ititit.utils.SchedulerProviderImpl
 import javax.inject.Singleton
 
 @Module
-class AppModule constructor(private val app: Application) {
+class AppModule constructor(private val app: App) {
 
     companion object {
         private const val APP_PREF_NAME = "Preferences"
@@ -19,6 +19,8 @@ class AppModule constructor(private val app: Application) {
 
     @Provides
     internal fun provideContext(): Context = app
+
+    @Provides internal fun provideApp(): App = app
 
     @Provides @Singleton
     internal fun provideSharedPreferences(context: Context): SharedPreferences {
