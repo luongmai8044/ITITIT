@@ -1,3 +1,5 @@
+import com.android.builder.internal.BaseConfigImpl
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -26,11 +28,37 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
         }
     }
 
+    flavorDimensions("version")
+    productFlavors{
+        dev{
+            dimension "version"
+            applicationIdSuffix ".dev"
+            addConstant("BASE_URL", "https://api.github.com/", it)
+            addConstant("API_KEY", "ABCXYZ123TEST", it)
+        }
+        stage{
+            dimension "version"
+            applicationIdSuffix ".stage"
+            addConstant("BASE_URL", "https://api.github.com/", it)
+            addConstant("API_KEY", "ABCXYZ123TEST", it)
+        }
+        live{
+            dimension "version"
+            applicationIdSuffix ".live"
+            addConstant("BASE_URL", "https://api.github.com/", it)
+            addConstant("API_KEY", "ABCXYZ123TEST", it)
+        }
+    }
 }
+
+static def addConstant(constantName, constantValue, BaseConfigImpl configImpl) {
+    configImpl.manifestPlaceholders += [(constantName): constantValue]
+    configImpl.buildConfigField "String", "${constantName}", "\"${constantValue}\""
+}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

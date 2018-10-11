@@ -6,6 +6,15 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     implementation "javax.inject:javax.inject:$rootProject.javaxInjectVersion"
+    implementation "org.jbehave:jbehave-core:4.3.5"
+    implementation "com.github.valfirst:jbehave-junit-runner:2.2.0"
+
+    // dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    kaptTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$rootProject.mockitoKotlinVersion"
+
 }
 buildscript {
     repositories {
