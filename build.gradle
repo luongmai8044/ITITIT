@@ -77,4 +77,5 @@ ext {
     mockitoVersion = '2.8.9'
     androidKTXVersion = '0.1'
     mockitoKotlinVersion = '2.0.0-RC1'
+    jBehaveCoreVersion = '4.3.5'
 }
