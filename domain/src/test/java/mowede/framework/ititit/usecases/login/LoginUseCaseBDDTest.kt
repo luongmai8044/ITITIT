@@ -17,7 +17,7 @@ import org.jbehave.core.steps.Steps
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
-class LoginUseCaseTest : Steps() {
+class LoginUseCaseBDDTest : Steps() {
 
     @Mock
     lateinit var schedulerProvider: SchedulerProvider
