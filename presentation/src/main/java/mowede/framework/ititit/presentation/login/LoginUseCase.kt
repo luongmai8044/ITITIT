@@ -1,4 +1,4 @@
-package mowede.framework.ititit.usecases.login
+package mowede.framework.ititit.presentation.login
 
 import io.reactivex.Completable
 import mowede.framework.ititit.exceptions.ValidationException

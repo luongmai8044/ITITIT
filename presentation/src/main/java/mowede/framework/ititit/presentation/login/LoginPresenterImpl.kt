@@ -3,7 +3,6 @@ package mowede.framework.ititit.presentation.login
 import io.reactivex.disposables.CompositeDisposable
 import mowede.framework.ititit.exceptions.ValidationException
 import mowede.framework.ititit.presentation.NetworkPresenter
-import mowede.framework.ititit.usecases.login.LoginUseCase
 import javax.inject.Inject
 
 class LoginPresenterImpl @Inject constructor(private val loginUseCase: LoginUseCase,
